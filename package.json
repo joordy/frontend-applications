@@ -5,7 +5,9 @@
     "dev": "svite",
     "build": "svite build"
   },
-  "dependencies": {},
+  "dependencies": {
+    "d3": "^6.2.0"
+  },
   "devDependencies": {
     "eslint": "^7.13.0",
     "eslint-plugin-svelte3": "^2.7.3",
