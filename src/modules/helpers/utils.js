@@ -1,4 +1,4 @@
-export async function receiveData(url) {
+export const receiveData = async (url) => {
   try {
     const dataSource = await fetch(url)
     return await dataSource.json()
@@ -7,7 +7,7 @@ export async function receiveData(url) {
   }
 }
 
-export function mergeData(datasrc1, datasrc2) {
+export const mergeData = (datasrc1, datasrc2) => {
   const result = datasrc1.map((src1) => {
     const spec = datasrc2.find((src2) => src1.areaid === src2.areaid)
     return { ...src1, ...spec }
@@ -15,7 +15,7 @@ export function mergeData(datasrc1, datasrc2) {
   return result
 }
 
-export function filterData(data) {
+export const filterData = (data) => {
   return data.map((item) => {
     return {
       areaDesc: item.areadesc,
