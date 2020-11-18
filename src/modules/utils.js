@@ -1,7 +1,8 @@
-// import { onMount } from "svelte";
-//   let data;
-//   export onMount(async () => {
-//     data = await fetch(
-//       "https://api.coindesk.com/v1/bpi/currentprice.json"
-//     ).then((x) => x.json());
-//   });
+export async function receiveData(url) {
+  try {
+    const dataSource = await fetch(url)
+    return await dataSource.json()
+  } catch (err) {
+    err
+  }
+}
