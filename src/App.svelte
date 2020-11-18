@@ -1,11 +1,13 @@
 <script>
-  import BarChart from '/src/components/organisms/Test.svelte'
+  import BarChart from '/src/components/organisms/BarChart.svelte'
   import { cleanMyData } from '/src/modules/cleanData'
-
-  cleanMyData()
 </script>
 
 <style>
 </style>
 
-<BarChart />
+{#await cleanMyData()}
+  <!-- promise is pending -->
+{:then data}
+  <BarChart {data} />
+{/await}
