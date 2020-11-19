@@ -1,27 +1,27 @@
 <script>
-  import { onMount } from 'svelte'
+  // import { onMount } from 'svelte'
   export let data
   console.log(data)
-  let carData = data.map((item) => item.carCapacity)
-  let elements
-  console.log(carData)
+  // let carData = data.map((item) => item.carCapacity)
+  // let elements
+  // console.log(carData)
 
-  onMount(() => {
-    const svg = select('svg')
+  // onMount(() => {
+  //   const svg = select('svg')
 
-    svg
-      .select(elements)
-      .selectAll('rect')
-      .data(carData)
-      .enter()
-      .append('rect')
-      .style('width', function (d) {
-        return d + 'px'
-      })
-      .text(function (d) {
-        return d
-      })
-  })
+  //   svg
+  //     .select(elements)
+  //     .selectAll('rect')
+  //     .data(carData)
+  //     .enter()
+  //     .append('rect')
+  //     .style('width', function (d) {
+  //       return d + 'px'
+  //     })
+  //     .text(function (d) {
+  //       return d
+  //     })
+  // })
 </script>
 
 <style>
@@ -30,6 +30,6 @@
   }
 </style>
 
-<h1>{JSON.stringify(data)}</h1>
-
-<svg bind:this={elements} />
+<section>
+  <h1>Hello</h1>
+</section>
