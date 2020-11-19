@@ -1,6 +1,7 @@
 <script>
-  import BarChart from '/src/components/organisms/BarChart.svelte'
-  import { cleanMyData } from '/src/modules/cleanData'
+  import Header from '/src/components/templates/Header.svelte'
+  import Charts from '/src/components/templates/Charts.svelte'
+  import Footer from '/src/components/templates/Footer.svelte'
 </script>
 
 <style>
@@ -12,28 +13,23 @@
   }
   :global(*) {
     font-family: 'Inter', sans-serif;
-    color: white;
-    background-color: black;
+    color: #fefefe;
+    background-color: #161616;
+  }
+  :global(html) {
+    margin: 0px 200px;
   }
   :global(h1) {
-    font-size: 4rem;
+    font-size: 3rem;
   }
   :global(h2) {
-    font-size: 3.25rem;
+    font-size: 2rem;
   }
   :global(h3) {
-    font-size: 2.5rem;
-  }
-  :global(h4) {
     font-size: 1.75rem;
-  }
-  :global(h5) {
-    font-size: 1.25rem;
   }
 </style>
 
-{#await cleanMyData()}
-  <!-- promise is pending -->
-{:then data}
-  <BarChart {data} />
-{/await}
+<Header />
+<Charts />
+<Footer />

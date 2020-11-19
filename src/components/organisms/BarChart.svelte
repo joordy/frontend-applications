@@ -25,11 +25,16 @@
 </script>
 
 <style>
-  h1 {
-    font-size: 16px;
-  }
 </style>
 
 <section>
-  <h1>Hello</h1>
+  <h2>
+    Hoe zit het met de doorrijhoogte van de parkeergarages in de grote steden?
+  </h2>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus
+    voluptates assumenda placeat maiores modi rem, nemo enim sint iste sequi.
+    Placeat sequi temporibus deserunt enim minima exercitationem quidem eaque
+    tempora?
+  </p>
 </section>

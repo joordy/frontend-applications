@@ -31,6 +31,12 @@ export const filterData = (data) => {
       maxDriveThrough: parseInt(
         item && item.maximumvehicleheight ? item.maximumvehicleheight : 0
       ),
+      lat: parseFloat(
+        item && item.location.latitude ? item.location.latitude : 0
+      ),
+      long: parseFloat(
+        item && item.location.longitude ? item.location.longitude : 0
+      ),
     }
   })
 }
