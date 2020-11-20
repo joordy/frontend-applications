@@ -59,18 +59,18 @@
     Placeat sequi temporibus deserunt enim minima exercitationem quidem eaque
     tempora?
   </p>
-  <div>
+  <!-- <div>
     <select name="" id="">
       {#each optionList as option}
         <option value={option}>{option}</option>
       {/each}
     </select>
-    <!-- <select id="selectBoxOne">
+    <select id="selectBoxOne">
       <option value="capaciteit">capaciteit</option>
       <option value="laadpalen">laadpalen</option>
       <option value="doorrijhoogte">maximale doorrijhoogte</option>
     </select>
-    <button on:click={getValue()}>submit</button> -->
-  </div>
+    <button on:click={getValue()}>submit</button>
+  </div> -->
   <LollyPop {data} />
 </section>
