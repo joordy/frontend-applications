@@ -34,11 +34,10 @@
   :global(h2) {
     font-size: 2rem;
     margin-bottom: 2rem;
-
-    width: 19em;
+    width: 21em;
   }
   :global(h3) {
-    font-size: 1.75rem;
+    font-size: 1.25rem;
     margin-bottom: 2rem;
   }
   :global(p) {
@@ -46,7 +45,7 @@
     margin-bottom: 2rem;
   }
   :global(header, main) {
-    width: 70vw;
+    width: 1040px;
     margin: 0 auto;
     /* margin: 0px 200px; */
   }

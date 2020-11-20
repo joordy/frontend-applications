@@ -2,49 +2,50 @@
   import { select, scaleBand, scaleLinear, max, axisBottom, axisLeft } from 'd3'
   import { onMount } from 'svelte'
   export let data
-
+  export let selectedValue
+  export let value
+  $: console.log(selectedValue)
+  $: console.log(value)
   // set the ranges
   const width = 960
-  const height = 480
+  const height = 580
   const margin = { top: 20, right: 20, bottom: 30, left: 40 }
 
   // Set data range
-  const graphData = data.splice(0, 10)
+  const graphData = data.splice(20, 25)
   let x = []
   let y = []
   let bars = []
 
-  // Wait for the element svg to mount so that we can call it with d3.
   onMount(() => {
     const axis = select('svg g')
-    const name = 'carCapacity'
-    const value = 'maxDriveThrough'
+    const name = 'areaDesc'
+    const graphValue = 'carCapacity'
 
     bars = graphData.map((d) => {
       return {
         // ...d,
         name: d[name],
-        value: Number(d[value]) || 0,
+        graphValue: Number(d[graphValue]) || 0,
       }
     })
 
-    // X & Y axis are really hard to make with HTML elements, and D3 is very good at making this. So let's not change anything about this :).
-    x = scaleBand()
-      .range([0, width])
-      .padding(0.1)
-      .domain(graphData.map((d) => d[name]))
-    y = scaleLinear()
-      .range([height, 0])
-      .domain([0, max(graphData, (d) => d[value])])
+    y = scaleBand()
+      .domain(graphData.map((item) => item[name]))
+      .rangeRound([0, height])
+      .padding(0.1) // .range([0, height])
 
-    // add the x Axis
+    x = scaleLinear()
+      .domain([0, max(graphData, (item) => item[graphValue])])
+      .rangeRound([0, width])
+      .nice() // .range([0, width])
+
     axis
       .append('g')
       .attr('transform', 'translate(0,' + height + ')')
       .call(axisBottom(x))
       .classed('X-Axis', true)
 
-    // add the y Axis
     axis.append('g').call(axisLeft(y)).classed('Y-Axis', true)
   })
 </script>
@@ -57,13 +58,13 @@
   height={height + margin.top + margin.bottom}
 >
   <g transform="translate({margin.left},{margin.top})">
-    {#each bars as { name, value }}
+    {#each bars as { name, graphValue }}
       <rect
         class="bar"
-        width={x.bandwidth()}
-        height={height - y(value)}
-        x={x(name)}
-        y={y(value)}
+        height={y.bandwidth()}
+        width={width - x(graphValue)}
+        x={x(graphValue)}
+        y={y(name)}
         fill="#03dac5"
       />
     {:else}

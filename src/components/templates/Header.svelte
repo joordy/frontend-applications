@@ -2,6 +2,10 @@
 </script>
 
 <style lang="scss">
+  h1 {
+    margin-top: 4rem;
+    margin-bottom: 8rem;
+  }
 </style>
 
 <header>
