@@ -13,20 +13,42 @@
   }
   :global(*) {
     font-family: 'Inter', sans-serif;
+  }
+  :global(*) {
     color: #fefefe;
-    background-color: #161616;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
   }
   :global(html) {
-    margin: 0px 200px;
+    background-color: #292929;
+  }
+  :global(section) {
+    margin-bottom: 3rem;
   }
   :global(h1) {
     font-size: 3rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
   }
   :global(h2) {
     font-size: 2rem;
+    margin-bottom: 2rem;
+
+    width: 19em;
   }
   :global(h3) {
     font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+  :global(p) {
+    width: 400px;
+    margin-bottom: 2rem;
+  }
+  :global(header, main) {
+    width: 70vw;
+    margin: 0 auto;
+    /* margin: 0px 200px; */
   }
 </style>
 

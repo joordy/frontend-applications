@@ -1,20 +1,20 @@
 <script>
-  import BarChart from '/src/components/organisms/BarChart.svelte'
-  import MapChart from '/src/components/organisms/MapChart.svelte'
+  import Lines from '/src/components/organisms/Lines.svelte'
+  import Map from '/src/components/organisms/Map.svelte'
   import { cleanMyData } from '/src/modules/cleanData'
 </script>
 
-<style>
+<style lang="scss">
 </style>
 
 {#await cleanMyData()}
   <p>Loading...</p>
 {:then data}
   <main>
-    <BarChart {data} />
-    <MapChart {data} />
+    <Lines {data} />
+    <Map {data} />
   </main>
 {:catch error}
   <p>Something went wrong, please try again.</p>
-  <h1>{error.message}</h1>
+  <p>{error.message}</p>
 {/await}
