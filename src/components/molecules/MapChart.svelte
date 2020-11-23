@@ -59,7 +59,7 @@
       svg
         .transition()
         .duration(750)
-        .call(nb
+        .call(
           d3zoom.transform,
           zoomIdentity
             .translate(width / 2, height / 2)
