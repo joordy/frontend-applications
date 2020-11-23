@@ -16,6 +16,7 @@ export const mergeData = (datasrc1, datasrc2) => {
 }
 
 export const filterData = (data) => {
+  // filteredValues(data)
   return data.map((item) => {
     return {
       areaDesc: item.areadesc,
@@ -37,6 +38,28 @@ export const filterData = (data) => {
       long: parseFloat(
         item && item.location.longitude ? item.location.longitude : 0
       ),
+      city: item.areadesc ? getCityName(item.areadesc) : null,
     }
   })
+}
+
+function getCityName(parkingName) {
+  let regex = /\(/g
+  const checker = regex.test(parkingName)
+  if (checker === true) {
+    let name = parkingName
+    let regPattern = /\(([^)]+)\)/
+    let cityname = regPattern.exec(name)[1]
+    return cityname
+  } else {
+    return null
+  }
+}
+
+export const getTopo = async (url) => {
+  return fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      return data
+    })
 }

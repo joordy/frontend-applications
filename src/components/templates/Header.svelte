@@ -4,7 +4,7 @@
 <style lang="scss">
   h1 {
     margin-top: 4rem;
-    margin-bottom: 8rem;
+    margin-bottom: 4rem;
   }
 </style>
 

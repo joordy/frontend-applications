@@ -1,7 +1,9 @@
 <script>
-  import LollyPop from '/src/components/molecules/LollyPop.svelte'
   export let data
-  console.log(data)
+  import LollyPop from '/src/components/molecules/LollyPop.svelte'
+
+  // label statement for X-value:
+  let value
   let optionList = Object.keys(data[0])
   optionList = optionList.filter(
     (item) =>
@@ -9,14 +11,10 @@
       item !== 'areaDesc' &&
       item !== 'areaID' &&
       item !== 'areaManagerID' &&
+      item !== 'city' &&
       item !== 'lat' &&
       item !== 'long'
   )
-  console.log(optionList)
-  let value
-  // label statement
-  $: console.log(value)
-  // status_message.set('hello')
 </script>
 
 <style lang="scss">
@@ -73,5 +71,3 @@
 
   <LollyPop {data} {value} />
 </section>
-
-<!-- selectedValue={value}  -->

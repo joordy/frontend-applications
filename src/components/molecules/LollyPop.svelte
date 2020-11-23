@@ -2,10 +2,9 @@
   import { select, scaleBand, scaleLinear, max, axisBottom, axisLeft } from 'd3'
   import { onMount } from 'svelte'
   export let data
-  export let selectedValue
   export let value
-  $: console.log(selectedValue)
   $: console.log(value)
+
   // set the ranges
   const width = 960
   const height = 580
@@ -63,7 +62,7 @@
         class="bar"
         height={y.bandwidth()}
         width={width - x(graphValue)}
-        x={x(graphValue)}
+        x={0}
         y={y(name)}
         fill="#03dac5"
       />
