@@ -55,11 +55,3 @@ function getCityName(parkingName) {
     return null
   }
 }
-
-export const getTopo = async (url) => {
-  return fetch(url)
-    .then((res) => res.json())
-    .then((data) => {
-      return data
-    })
-}
