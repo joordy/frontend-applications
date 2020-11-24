@@ -1,8 +1,13 @@
 <script>
-  export let data
-  import LollyPop from '/src/components/molecules/LollyPop.svelte'
+  import BarChart from '/src/components/atoms/BarChart.svelte'
+  import { countValues, checkForValue } from '/src/modules/helpers/utils'
 
-  // label statement for X-value:
+  export let data
+  export let width
+
+  countValues(data)
+
+  // // label statement for X-value:
   let value
   let optionList = Object.keys(data[0])
   optionList = optionList.filter(
@@ -32,6 +37,7 @@
     display: flex;
     justify-content: start;
     align-content: center;
+    margin-bottom: 3rem;
     h3 {
       font-weight: 300;
       font-size: 1.25rem;
@@ -49,7 +55,7 @@
 <section>
   <h2>
     Hoe zit het met de
-    <span>{value}</span>
+    <span>{checkForValue(value)}</span>
     van de parkeergarages in de grote steden?
   </h2>
   <p>
@@ -58,9 +64,7 @@
     Placeat sequi temporibus deserunt enim minima exercitationem quidem eaque
     tempora?
   </p>
-
   <article>
-    <!-- <h3>Laat {value} zien</h3> -->
     <h3>Categorie:</h3>
     <select bind:value name="" id="">
       {#each optionList as option}
@@ -69,5 +73,7 @@
     </select>
   </article>
 
-  <LollyPop {data} {value} />
+  <div bind:clientWidth={width}>
+    <BarChart {data} {width} formValue={value} height={660} />
+  </div>
 </section>

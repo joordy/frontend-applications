@@ -1,5 +1,5 @@
 import { receiveData, mergeData, filterData } from './helpers/utils'
-import { apiOne, apiTwo } from './helpers/rdwEntry'
+import { apiOne, apiTwo } from './helpers/entrys'
 
 export const cleanMyData = async () => {
   const datasrc1 = await receiveData(apiOne)

@@ -1,6 +1,7 @@
 <script>
-  import MapChart from '/src/components/molecules/MapChart.svelte'
+  import MapChart from '/src/components/atoms/MapChart.svelte'
   export let data
+  export let width
 </script>
 
 <style lang="scss">
@@ -25,5 +26,5 @@
     tempora veniam odit deleniti quo animi dolores quibusdam earum tempore
     itaque? Non.
   </p>
-  <MapChart {data} />
+  <MapChart {data} {width} />
 </section>

@@ -1,7 +1,9 @@
 <script>
-  import Lines from '/src/components/organisms/Lines.svelte'
-  import Map from '/src/components/organisms/Map.svelte'
+  import Lines from '/src/components/molecules/Lines.svelte'
+  import Bars from '/src/components/molecules/Bars.svelte'
+  import Map from '/src/components/molecules/Map.svelte'
   import { cleanMyData } from '/src/modules/cleanData'
+  export let width
 </script>
 
 <style lang="scss">
@@ -12,9 +14,9 @@
 </style>
 
 {#await cleanMyData()}
-  <p>Loading...</p>
+  <p style="text-align: center; width: 100%;">Loading...</p>
 {:then data}
-  <main>
+  <main bind:clientWidth={width}>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Est laboriosam
       nesciunt atque doloribus illo temporibus numquam consequuntur. At id
@@ -27,8 +29,9 @@
       temporibus numquam consequuntur. At id corporis consectetur vitae?
       Debitis, culpa quod molestias at excepturi ratione corrupti?
     </p>
-    <Lines {data} />
-    <Map {data} />
+    <Bars {data} {width} />
+    <!-- <Lines {data} /> -->
+    <Map {data} {width} />
   </main>
 {:catch error}
   <p>Something went wrong, please try again.</p>

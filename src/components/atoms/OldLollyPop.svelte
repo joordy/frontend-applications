@@ -9,6 +9,8 @@
   const width = 960
   const height = 580
   const margin = { top: 20, right: 20, bottom: 30, left: 40 }
+  const innerWidth = width - margin.right - margin.left
+  const innerHeight = height - margin.top - margin.bottom
 
   // Set data range
   const graphData = data.splice(20, 25)
@@ -39,13 +41,13 @@
       .rangeRound([0, width])
       .nice() // .range([0, width])
 
-    axis
-      .append('g')
-      .attr('transform', 'translate(0,' + height + ')')
-      .call(axisBottom(x))
-      .classed('X-Axis', true)
+    // axis
+    //   .append('g')
+    //   .attr('transform', 'translate(0,' + height + ')')
+    //   .call(axisBottom(x))
+    //   .classed('X-Axis', true)
 
-    axis.append('g').call(axisLeft(y)).classed('Y-Axis', true)
+    // axis.append('g').call(axisLeft(y)).classed('Y-Axis', true)
   })
 </script>
 

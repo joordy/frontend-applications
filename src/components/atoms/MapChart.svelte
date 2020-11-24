@@ -10,10 +10,14 @@
   } from 'd3'
   import { onMount } from 'svelte'
   import { feature } from 'topojson'
+
+  export let width
+
   // import { getTopo } from '/src/modules/helpers/utils'
   // const url = 'https://cartomap.github.io/nl/wgs84/gemeente_2020.topojson'
-  const width = 960
-  const height = 760
+  // const width = 960
+
+  const height = 600
   const margin = { top: 20, right: 20, bottom: 30, left: 40 }
 
   onMount(async () => {
@@ -22,12 +26,12 @@
     )
     const data = await res.json()
     const path = geoPath()
-    const d3zoom = zoom().scaleExtent([1, 8]).on('zoom', zoomed)
+    const d3zoom = zoom().scaleExtent([1, 6]).on('zoom', zoomed)
     const svg = select('.map')
-      .attr('viewBox', [0, 0, width, height])
+      .attr('viewBox', [0, 0, width - 120, height])
       .on('click', reset)
     const g = svg.append('g')
-    const projection = geoMercator().scale(9000).center([5.4846, 52.6924]) // 51.89244075767439, 5.484603245756155
+    const projection = geoMercator().scale(7000).center([5.7846, 52.6924]) // 51.89244075767439, 5.484603245756155
     const pathGenerator = path.projection(projection)
     const gemeentes = g
       .append('g')
@@ -80,6 +84,6 @@
 
 <svg
   class="map"
-  width={width + margin.left + margin.right}
+  width={width - margin.left - margin.right}
   height={height + margin.top + margin.bottom}
 />

@@ -43,7 +43,7 @@ export const filterData = (data) => {
   })
 }
 
-function getCityName(parkingName) {
+const getCityName = (parkingName) => {
   let regex = /\(/g
   const checker = regex.test(parkingName)
   if (checker === true) {
@@ -54,4 +54,35 @@ function getCityName(parkingName) {
   } else {
     return null
   }
+}
+
+export const countValues = (dataset) => {
+  console.log('hello', dataset)
+
+  // let newArr = []
+  // dataset.forEach((capacity) => {
+  //   if (newArr.find((item) => item.carCapacity == capacity) == undefined) {
+  //     newArr.push({
+  //       carCapacity: capacity,
+  //       value: 0,
+  //     })
+  //   }
+  //   newArr.find((item) => item.carCapacity == capacity).value += 1
+  // })
+
+  // console.log(newArr)
+}
+
+export const checkForValue = (value) => {
+  if (value === 'carCapacity') {
+    value = 'parkeer capaciteit'
+    return value
+  } else if (value === 'maxDriveThrough') {
+    value = 'maximale doorrijhoogte'
+    return value
+  } else if (value === 'evChargerCapacity') {
+    value = 'laadpalen'
+    return value
+  }
+  return value
 }

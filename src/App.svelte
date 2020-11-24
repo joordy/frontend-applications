@@ -1,7 +1,6 @@
 <script>
-  import Header from '/src/components/templates/Header.svelte'
-  import Charts from '/src/components/templates/Charts.svelte'
-  import Footer from '/src/components/templates/Footer.svelte'
+  import Home from '/src/components/templates/Home.svelte'
+  let width
 </script>
 
 <style>
@@ -22,6 +21,11 @@
   }
   :global(html) {
     background-color: #292929;
+  }
+  :global(body) {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
   }
   :global(section) {
     margin-bottom: 3rem;
@@ -44,13 +48,6 @@
     width: 400px;
     margin-bottom: 2rem;
   }
-  :global(header, main) {
-    width: 1040px;
-    margin: 0 auto;
-    /* margin: 0px 200px; */
-  }
 </style>
 
-<Header />
-<Charts />
-<Footer />
+<Home bind:clientWidth={width} />
