@@ -1,19 +1,19 @@
 <script>
-  import { scaleLinear, max, ticks } from 'd3'
+  import { scaleLinear, max } from 'd3'
 
   // Exported values
-  export let data
+  export let graphData
   export let width
   export let height
   export let formValue
 
   // Graph values
-  const label = 'city'
+  const label = 'name'
   const padding = { top: 20, right: 20, bottom: 30, left: 40 }
-  let graphData = data.slice(10, 35)
+  let userData = graphData.slice(10, 35)
 
   $: graphWidth = width - 60
-  $: graphBars = graphData.map((item) => {
+  $: graphBars = userData.map((item) => {
     let graphValue = item[formValue]
     let layout = {
       label: item[label],
@@ -41,7 +41,6 @@
       parseInt((highestPoint / 6) * 5),
       highestPoint
     )
-    console.log(ticks)
     return ticks
   }
 

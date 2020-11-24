@@ -5,21 +5,13 @@
   export let data
   export let width
 
-  countValues(data)
+  const graphData = countValues(data)
+  console.log(graphData)
 
   // // label statement for X-value:
   let value
-  let optionList = Object.keys(data[0])
-  optionList = optionList.filter(
-    (item) =>
-      item !== 'disAccess' &&
-      item !== 'areaDesc' &&
-      item !== 'areaID' &&
-      item !== 'areaManagerID' &&
-      item !== 'city' &&
-      item !== 'lat' &&
-      item !== 'long'
-  )
+  let optionList = Object.keys(graphData[0])
+  optionList = optionList.filter((item) => item !== 'name')
 </script>
 
 <style lang="scss">
@@ -68,12 +60,12 @@
     <h3>Categorie:</h3>
     <select bind:value name="" id="">
       {#each optionList as option}
-        <option value={option}>{option}</option>
+        <option value={option}>{checkForValue(option)}</option>
       {/each}
     </select>
   </article>
 
   <div bind:clientWidth={width}>
-    <BarChart {data} {width} formValue={value} height={660} />
+    <BarChart {graphData} {width} formValue={value} height={660} />
   </div>
 </section>
