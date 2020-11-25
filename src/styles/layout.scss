@@ -1,0 +1,31 @@
+:global(*) {
+  color: $ui-soft-white;
+  margin: 0;
+  padding: 0;
+  font-size: $p-size;
+}
+:global(html) {
+  background-color: $ui-dark-grey;
+}
+:global(header, main) {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+:global(section) {
+  margin-bottom: 3rem;
+}
+:global(h1) {
+  font-size: $h1-size;
+  margin-bottom: 2rem;
+  font-weight: $bold;
+}
+:global(h2) {
+  font-size: $h2-size;
+  margin-bottom: 2rem;
+  width: 21em;
+}
+:global(h3) {
+  font-size: $h3-size;
+  margin-bottom: 2rem;
+}

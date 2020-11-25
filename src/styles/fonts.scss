@@ -1,0 +1,9 @@
+@import url('https://cors-anywhere.herokuapp.com/https://rsms.me/inter/inter.css');
+@supports (font-variation-settings: normal) {
+  :global(*) {
+    font-family: 'Inter var', sans-serif;
+  }
+}
+:global(*) {
+  font-family: 'Inter', sans-serif;
+}

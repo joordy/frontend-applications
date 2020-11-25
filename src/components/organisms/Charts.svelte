@@ -8,6 +8,8 @@
 </script>
 
 <style lang="scss">
+  @import 'src/styles/index.scss';
+
   main {
     position: relative;
     section {
@@ -20,11 +22,10 @@
 
         &:last-of-type {
           margin-top: 3rem;
-          // font-size: 16px;
           span {
             font-size: 20px;
             font-weight: 700;
-            color: #03dac5;
+            color: $ui-blue-green;
           }
         }
       }
