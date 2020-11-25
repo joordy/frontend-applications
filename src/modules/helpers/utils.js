@@ -1,3 +1,4 @@
+// Fetch received URL's and convert them to JSON.
 export const receiveData = async (url) => {
   try {
     const dataSource = await fetch(url)
@@ -7,6 +8,8 @@ export const receiveData = async (url) => {
   }
 }
 
+// Merge the two datasets together. Made use of the spread syntax:
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
 export const mergeData = (datasrc1, datasrc2) => {
   const result = datasrc1.map((src1) => {
     const spec = datasrc2.find((src2) => src1.areaid === src2.areaid)
@@ -15,6 +18,7 @@ export const mergeData = (datasrc1, datasrc2) => {
   return result
 }
 
+// Filter the data, and convert numbers to valid integers.
 export const filterData = (data) => {
   // filteredValues(data)
   return data.map((item) => {
@@ -29,9 +33,7 @@ export const filterData = (data) => {
       disAccess: parseInt(
         item && item.disabledaccess ? item.disabledaccess : 0
       ),
-      maxDriveThrough: parseInt(
-        item && item.maximumvehicleheight ? item.maximumvehicleheight : 430
-      ),
+      maxDriveThrough: getMaxDrive(item.maximumvehicleheight),
       lat: parseFloat(
         item && item.location.latitude ? item.location.latitude : 0
       ),
@@ -43,6 +45,20 @@ export const filterData = (data) => {
   })
 }
 
+// Give maxDriveThrough average size when number is 0.
+const getMaxDrive = (item) => {
+  // console.log(item)
+  if (item === 0) {
+    return parseInt(400)
+  } else if (item === undefined) {
+    return parseInt(400)
+  } else {
+    return parseInt(item)
+  }
+}
+
+// Gets name between the '( )' and place it inside an new object value.
+// Used source:  https://stackoverflow.com/questions/49676897/javascript-es6-count-duplicates-to-an-array-of-objects && help of @lars-ruijs
 const getCityName = (parkingName) => {
   let regex = /\(/g
   const checker = regex.test(parkingName)
@@ -56,6 +72,7 @@ const getCityName = (parkingName) => {
   }
 }
 
+// Converts reactive decleration to readable Dutch string.
 export const checkForValue = (value) => {
   if (value === 'totalCapacity') {
     value = 'parkeer capaciteit'
@@ -63,19 +80,24 @@ export const checkForValue = (value) => {
   } else if (value === 'avgDriveThrough') {
     value = 'maximale doorrijhoogte'
     return value
-  } else if (value === '') {
-    value = 'chargingPoints'
+  } else if (value === 'chargingPoints') {
+    value = 'laadpunten'
+    return value
+  } else if (value === 'totalGarage') {
+    value = 'totaal aantal parkeergarages'
     return value
   }
   return value
 }
 
+// Merges all the usable variables for barchart together
 export const countValues = (dataset) => {
   const newData = filterCities(dataset)
   const finalData = mergeDataCity(dataset, newData)
   return finalData
 }
 
+// Filter the cities on unique ones, goes from 355 to 86.
 const filterCities = (dataset) => {
   let newData = []
   dataset.forEach((item) => {
@@ -87,13 +109,17 @@ const filterCities = (dataset) => {
   return newData
 }
 
+// Function chain to fire the functions which merges all the capacity places and charger spots.
+// Made with the expertise of @veerleprins
 const mergeDataCity = (dataset, newData) => {
+  const allCities = dataset.map((item) => item.city)
   const uniqueCities = newData.map((item) => item.cityName)
   const allData = createObj(uniqueCities)
-  parseInfo(allData, dataset)
+  parseInfo(allData, dataset, allCities)
   return allData
 }
 
+// Creating new objects for barchart with total values
 // Made with the expertise of @veerleprins
 const createObj = (allCities) => {
   let countObj
@@ -103,28 +129,79 @@ const createObj = (allCities) => {
       totalCapacity: 0,
       avgDriveThrough: 0,
       chargingPoints: 0,
+      totalGarage: 0,
     })
   })
 }
 
-const parseInfo = (a, dataset) => {
-  let num
+// // Changes city name to first letter Uppercase
+// // Used source: https://www.geeksforgeeks.org/how-to-make-first-letter-of-a-string-uppercase-in-javascript/
+// const newCityName = (city) => {
+//   console.log
+//   if (city === null) {
+//     return
+//   } else {
+//     return city.charAt(0).toUpperCase() + city.slice(1)
+//   }
+// }
+
+// Parses all the information to the specific cities.
+// With a bit of help from @veerleprins
+const parseInfo = (a, dataset, allCities) => {
+  let num1
+  let cityCount
   let avg
   let num2
   a.forEach((obj) => {
-    num = 0
+    num1 = 0
+    cityCount = 0
     avg = 0
     num2 = 0
     dataset.forEach((totalObj) => {
       if (obj.name === totalObj.city) {
-        num += totalObj.carCapacity
+        num1 += totalObj.carCapacity
         avg += totalObj.maxDriveThrough
         num2 += totalObj.evChargerCapacity
+        cityCount++
       }
     })
-    let newAvg = avg / dataset.length
-    obj.totalCapacity = num
+    console.log(avg)
+    obj.totalGarage = cityCount
+
+    let newAvg = avg / cityCount
+    obj.totalCapacity = num1
     obj.avgDriveThrough = newAvg
     obj.chargingPoints = num2
+    // obj.totalGarage = cityCount
   })
 }
+
+// let countArr = []
+// allCities.forEach((name) => {
+//   let uniqueCity = countArr.find((item) => item.city === name)
+//   if (uniqueCity === undefined) {
+//     countArr.push({
+//       city: name,
+//       value: 0,
+//     })
+//   }
+//   countArr.find((item) => item.city === name).value += 1
+// })
+// console.log(countArr)
+// const cityTotal = getCityTotal(allCities)
+//let name
+// const getCityTotal = (allCities) => {
+//   let countArr = []
+//   allCities.forEach((name) => {
+//     let uniqueCity = countArr.find((item) => item.city === name)
+//     if (uniqueCity === undefined) {
+//       countArr.push({
+//         city: name,
+//         value: 0,
+//       })
+//     }
+//     countArr.find((item) => item.city === name).value += 1
+//   })
+//   console.log(countArr)
+//   return countArr
+// }
