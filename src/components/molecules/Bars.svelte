@@ -12,24 +12,28 @@
   // // label statement for X-value:
   let value
   let optionList = Object.keys(graphData[0])
-  optionList = optionList.filter((item) => item !== 'name')
+  optionList = optionList.filter(
+    (item) => item !== 'name' && item !== 'chargingPoints'
+  )
 </script>
 
 <style lang="scss">
+  @import 'src/styles/index.scss';
+
   h2 {
     max-width: 21em;
-    font-weight: 300;
+    font-weight: $normal;
     span {
-      font-weight: 900;
-      font-size: 2rem;
-      color: #03dac5;
+      font-weight: $extraBold;
+      font-size: $h2-size;
+      color: $ui-blue-green;
     }
   }
   p {
     max-width: 500px;
-    margin-bottom: 1rem;
+    margin-bottom: $margin-1;
     &:last-of-type {
-      margin-bottom: 3rem;
+      margin-bottom: $margin-3;
     }
   }
   article {
@@ -37,17 +41,17 @@
     display: flex;
     justify-content: start;
     align-content: center;
-    margin-bottom: 3rem;
+    margin-bottom: $margin-3;
     h3 {
-      font-weight: 300;
-      font-size: 1.25rem;
+      font-weight: $normal;
+      font-size: $h4-size;
     }
     select {
-      margin: 0 1rem;
+      margin: 0 $margin-1;
     }
     select,
     option {
-      color: black;
+      color: $ui-black;
     }
   }
 </style>

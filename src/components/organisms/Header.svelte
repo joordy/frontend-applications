@@ -2,9 +2,11 @@
 </script>
 
 <style lang="scss">
+  @import 'src/styles/index.scss';
+
   h1 {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-top: $margin-4;
+    margin-bottom: $margin-4;
   }
   div {
     top: 0;

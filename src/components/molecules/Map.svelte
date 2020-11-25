@@ -5,12 +5,19 @@
 </script>
 
 <style lang="scss">
-  h2 {
-    font-weight: 300;
-    span {
-      font-weight: 900;
-      font-size: 2rem;
-      color: #03dac5;
+  @import 'src/styles/index.scss';
+
+  section {
+    h2 {
+      font-weight: $normal;
+      span {
+        font-weight: $extraBold;
+        font-size: $h2-size;
+        color: $ui-blue-green;
+      }
+    }
+    p {
+      max-width: 500px;
     }
   }
 </style>

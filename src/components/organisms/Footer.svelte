@@ -13,8 +13,8 @@
     background-color: $ui-soft-black;
     text-align: center;
     p {
-      font-weight: 300;
-      margin: 0 0 10px 0;
+      font-weight: $normal;
+      margin: 0 0 $margin-1 0;
     }
   }
 </style>

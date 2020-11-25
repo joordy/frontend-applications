@@ -80,10 +80,12 @@ export const checkForValue = (value) => {
   } else if (value === 'avgDriveThrough') {
     value = 'maximale doorrijhoogte'
     return value
-  } else if (value === 'chargingPoints') {
-    value = 'laadpunten'
-    return value
-  } else if (value === 'totalGarage') {
+  }
+  // else if (value === 'chargingPoints') {
+  //   value = 'laadpunten'
+  //   return value
+  // }
+  else if (value === 'totalGarage') {
     value = 'totaal aantal parkeergarages'
     return value
   }

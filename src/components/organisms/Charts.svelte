@@ -15,16 +15,16 @@
     section {
       min-height: 75vh;
       p {
-        font-size: 20px;
-        font-weight: 200;
+        font-size: $largeP-size;
+        font-weight: $light;
         width: 70%;
-        margin-bottom: 1.5rem;
+        margin-bottom: $margin-1;
 
         &:last-of-type {
-          margin-top: 3rem;
+          margin-top: $margin-3;
           span {
-            font-size: 20px;
-            font-weight: 700;
+            font-size: $largeP-size;
+            font-weight: $bold;
             color: $ui-blue-green;
           }
         }
