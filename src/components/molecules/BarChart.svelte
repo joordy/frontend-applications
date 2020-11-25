@@ -1,5 +1,8 @@
 <script>
-  import { scaleLinear, max } from 'd3'
+  import ToolTip from '/src/components/atoms/ToolTip.svelte'
+  import AxisLeft from '/src/components/atoms/AxisLeft.svelte'
+  import AxisBottom from '/src/components/atoms/AxisBottom.svelte'
+  import { scaleLinear, max, pointer } from 'd3'
 
   // Exported values
   export let graphData
@@ -11,9 +14,14 @@
   const label = 'name'
   const padding = { top: 20, right: 60, bottom: 75, left: 60 }
   let userData = graphData.slice(0, 50)
+  let toggleTooltip = false
+  let tooltipData = {}
 
   // Reactive declerations
+  // Set width of SVG
   $: graphWidth = width - 180
+
+  // Maps the needed data into a new format, with only value and label send to chart.
   $: graphBars = userData.map((item) => {
     let graphValue = item[formValue]
     let layout = {
@@ -23,6 +31,7 @@
     return layout
   })
 
+  // Sets X and Y scalings with D3
   $: xScale = scaleLinear()
     .domain([0, graphBars.length])
     .range([padding.left, width - padding.right])
@@ -31,6 +40,7 @@
     .domain([0, max(graphBars, (data) => data.value)])
     .range([height - padding.bottom, padding.top])
 
+  // Custom function which calculates 5 custom ticks, based on value of Y-Axis
   $: yAxisTicks = () => {
     let [startPoint, highestPoint] = yScale.domain()
     const ticks = []
@@ -43,38 +53,29 @@
     )
     return ticks
   }
+
+  // Sets innerWidth of chart
   $: innerWidth = width - (padding.left + padding.right)
+
+  // Calculates how width the bars should be
   $: barWidth = innerWidth / graphBars.length
+
+  // Function to change the toggleTooltip to true, and pass in the exact data
+  function showTooltip(event) {
+    const index = this.getAttribute('data-index')
+    const selectedBarData = graphData[index]
+    const [x, y] = pointer(event)
+    // Set data.
+    tooltipData = { selectedBarData, x, y }
+    toggleTooltip = true
+    console.log(pointer(event))
+    console.log(index)
+    console.log(selectedBarData)
+  }
 </script>
 
 <style lang="scss">
   @import 'src/styles/index.scss';
-
-  .tick {
-    font-family: Helvetica, Arial;
-    font-size: $graph-text;
-    font-weight: $light;
-  }
-
-  .tick text {
-    fill: #fefefe;
-    text-anchor: start;
-  }
-
-  .tick.tick-0 line {
-    stroke-dasharray: 0;
-  }
-
-  .yAxis .tick text {
-    text-anchor: middle;
-  }
-
-  .xAxis .tick text {
-    text-anchor: start;
-    &::first-letter {
-      text-transform: uppercase;
-    }
-  }
 
   .graph__bar {
     &:hover {
@@ -93,46 +94,37 @@
   width={graphWidth + padding.left + padding.right}
   height={height + padding.top + padding.bottom}
 >
-  <!-- y axis -->
-  <g class="axis yAxis">
+  <g class="yAxis axis">
     {#each yAxisTicks() as yTick}
-      <g class="tick tick-{yTick}" transform="translate(30, {yScale(yTick)})">
-        <text y="-4">{yTick}</text>
-      </g>
+      <AxisLeft {yTick} {yScale} />
     {/each}
   </g>
 
-  <!-- x axis -->
-  <g class="axis xAxis">
+  <g class="xAxis axis">
     {#each graphBars as { label }, index}
-      <g
-        class="tick"
-        transform="translate({xScale(index)},{height - 65}), rotate(90)"
-      >
-        <text x={barWidth / 2} y="-4">{label}</text>
-      </g>
+      <AxisBottom {index} {height} {barWidth} {xScale} {label} />
     {/each}
   </g>
 
-  <g class="bars">
+  <g class="allBars">
     {#each graphBars as { value }, index}
-      <!-- Bars for data -->
       <rect
         class="graph__bar"
         x={xScale(index) + 2}
         y={yScale(value)}
         width={barWidth - 4}
         height={height - padding.bottom - yScale(value)}
+        data-index={index}
+        on:click={showTooltip}
       />
-
-      <!-- Bars for clickable -->
-      <!-- <rect
-        class="bar-container"
-        width={barWidth - 4}
-        x={xScale(i) + 2}
-        height={height - padding.bottom}
-        data-index={i}
-      /> -->
     {/each}
   </g>
+
+  {#if toggleTooltip}
+    <ToolTip
+      graphData={tooltipData.selectedBarData}
+      x={tooltipData.x}
+      y={tooltipData.y}
+    />
+  {/if}
 </svg>

@@ -172,7 +172,7 @@ const parseInfo = (a, dataset, allCities) => {
 
     let newAvg = avg / cityCount
     obj.totalCapacity = num1
-    obj.avgDriveThrough = newAvg
+    obj.avgDriveThrough = parseInt(newAvg)
     obj.chargingPoints = num2
     // obj.totalGarage = cityCount
   })

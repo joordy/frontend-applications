@@ -34,7 +34,7 @@
 </style>
 
 {#await cleanMyData()}
-  <p style="text-align: center; width: 100%;">Loading...</p>
+  <p style="text-align: center; width: 100%; margin-top: 14rem;">Loading...</p>
 {:then data}
   <main bind:clientWidth={width}>
     <section>
@@ -69,6 +69,8 @@
 
   <Footer />
 {:catch error}
-  <p>Something went wrong, please try again.</p>
-  <p>{error.message}</p>
+  <div style="text-align: center; width: 100%; margin-top: 14rem;">
+    <p>Something went wrong, please try again.</p>
+    <p>{error.message}</p>
+  </div>
 {/await}

@@ -15,8 +15,8 @@
     z-index: -1;
     img {
       opacity: 0.1;
-      height: 100vh;
-      width: auto;
+      height: auto;
+      width: 100vw;
     }
   }
 </style>
