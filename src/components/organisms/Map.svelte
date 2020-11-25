@@ -1,5 +1,5 @@
 <script>
-  import MapChart from '/src/components/atoms/MapChart.svelte'
+  import MapChart from '/src/components/molecules/MapChart.svelte'
   export let data
   export let width
 </script>

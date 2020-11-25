@@ -1,5 +1,5 @@
 <script>
-  import BarChart from '/src/components/atoms/BarChart.svelte'
+  import BarChart from '/src/components/molecules/BarChart.svelte'
   import { countValues, checkForValue } from '/src/modules/helpers/utils'
 
   export let data

@@ -1,7 +1,7 @@
 <script>
-  import Bars from '/src/components/molecules/Bars.svelte'
-  import Map from '/src/components/molecules/Map.svelte'
-  import Footer from '/src/components/organisms/Footer.svelte'
+  import Bars from '/src/components/organisms/Bars.svelte'
+  import Map from '/src/components/organisms/Map.svelte'
+  import Footer from '/src/components/layouts/Footer.svelte'
 
   import { cleanMyData } from '/src/modules/cleanData'
   export let width
