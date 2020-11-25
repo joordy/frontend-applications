@@ -77,6 +77,8 @@ localhost:1234
 
 - MDN. (2020, September 28). Spread syntax (...). Retrieved 18 November 2020, from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
 
+<!-- https://www.geeksforgeeks.org/how-to-make-first-letter-of-a-string-uppercase-in-javascript/ -->
+
 ## :lock: License
 
 This is a repository which is licensed as MIT. Jordy Fronik ©️ 2020.
