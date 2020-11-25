@@ -47,11 +47,13 @@
   }
 </script>
 
-<style>
+<style lang="scss">
+  @import 'src/styles/index.scss';
+
   .tick {
     font-family: Helvetica, Arial;
-    font-size: 0.725em;
-    font-weight: 200;
+    font-size: $graph-text;
+    font-weight: $light;
   }
 
   .tick text {
@@ -63,31 +65,27 @@
     stroke-dasharray: 0;
   }
 
-  .y-axis .tick text {
+  .yAxis .tick text {
     text-anchor: middle;
   }
 
-  .x-axis .tick text {
+  .xAxis .tick text {
     text-anchor: start;
+    &::first-letter {
+      text-transform: uppercase;
+    }
   }
 
-  .bar-data {
-    fill: #03dac5;
+  .graph__bar {
+    &:hover {
+      opacity: 0.4;
+      cursor: pointer;
+    }
+    fill: $ui-blue-green;
     stroke: none;
     opacity: 0.75;
     transition: all 300ms;
     rx: 2;
-  }
-
-  .bar-container {
-    opacity: 0;
-    fill: black;
-    cursor: pointer;
-    transition: all 300ms;
-  }
-
-  .bar-container:hover {
-    opacity: 0.1;
   }
 </style>
 
@@ -96,7 +94,7 @@
   height={height + padding.top + padding.bottom}
 >
   <!-- y axis -->
-  <g class="axis y-axis">
+  <g class="axis yAxis">
     {#each yTicks() as tick}
       <g class="tick tick-{tick}" transform="translate(30, {yScale(tick)})">
         <text y="-4">{tick}</text>
@@ -105,7 +103,7 @@
   </g>
 
   <!-- x axis -->
-  <g class="axis x-axis">
+  <g class="axis xAxis">
     {#each graphBars as { label }, i}
       <g
         class="tick"
@@ -120,7 +118,7 @@
     {#each graphBars as { value }, i}
       <!-- Bars for data -->
       <rect
-        class="bar-data"
+        class="graph__bar"
         x={xScale(i) + 2}
         y={yScale(value)}
         width={barWidth - 4}
@@ -128,13 +126,13 @@
       />
 
       <!-- Bars for clickable -->
-      <rect
+      <!-- <rect
         class="bar-container"
         width={barWidth - 4}
         x={xScale(i) + 2}
         height={height - padding.bottom}
         data-index={i}
-      />
+      /> -->
     {/each}
   </g>
 </svg>

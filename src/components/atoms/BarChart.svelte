@@ -9,11 +9,11 @@
 
   // Graph values
   const label = 'name'
-  const padding = { top: 20, right: 20, bottom: 75, left: 60 }
+  const padding = { top: 20, right: 60, bottom: 75, left: 60 }
   let userData = graphData.slice(0, 50)
 
   // Reactive declerations
-  $: graphWidth = width - 60
+  $: graphWidth = width - 180
   $: graphBars = userData.map((item) => {
     let graphValue = item[formValue]
     let layout = {
@@ -22,8 +22,6 @@
     }
     return layout
   })
-  $: innerWidth = width - (padding.left + padding.right)
-  $: barWidth = innerWidth / graphBars.length
 
   $: xScale = scaleLinear()
     .domain([0, graphBars.length])
@@ -33,7 +31,7 @@
     .domain([0, max(graphBars, (data) => data.value)])
     .range([height - padding.bottom, padding.top])
 
-  $: yTicks = () => {
+  $: yAxisTicks = () => {
     let [startPoint, highestPoint] = yScale.domain()
     const ticks = []
     ticks.push(
@@ -45,13 +43,17 @@
     )
     return ticks
   }
+  $: innerWidth = width - (padding.left + padding.right)
+  $: barWidth = innerWidth / graphBars.length
 </script>
 
 <style lang="scss">
+  @import 'src/styles/index.scss';
+
   .tick {
     font-family: Helvetica, Arial;
-    font-size: 0.725em;
-    font-weight: 200;
+    font-size: $graph-text;
+    font-weight: $light;
   }
 
   .tick text {
@@ -69,6 +71,9 @@
 
   .xAxis .tick text {
     text-anchor: start;
+    &::first-letter {
+      text-transform: uppercase;
+    }
   }
 
   .graph__bar {
@@ -76,7 +81,7 @@
       opacity: 0.4;
       cursor: pointer;
     }
-    fill: #03dac5;
+    fill: $ui-blue-green;
     stroke: none;
     opacity: 0.75;
     transition: all 300ms;
@@ -90,19 +95,19 @@
 >
   <!-- y axis -->
   <g class="axis yAxis">
-    {#each yTicks() as tick}
-      <g class="tick tick-{tick}" transform="translate(30, {yScale(tick)})">
-        <text y="-4">{tick}</text>
+    {#each yAxisTicks() as yTick}
+      <g class="tick tick-{yTick}" transform="translate(30, {yScale(yTick)})">
+        <text y="-4">{yTick}</text>
       </g>
     {/each}
   </g>
 
   <!-- x axis -->
   <g class="axis xAxis">
-    {#each graphBars as { label }, i}
+    {#each graphBars as { label }, index}
       <g
         class="tick"
-        transform="translate({xScale(i)},{height - 65}), rotate(90)"
+        transform="translate({xScale(index)},{height - 65}), rotate(90)"
       >
         <text x={barWidth / 2} y="-4">{label}</text>
       </g>
@@ -110,11 +115,11 @@
   </g>
 
   <g class="bars">
-    {#each graphBars as { value }, i}
+    {#each graphBars as { value }, index}
       <!-- Bars for data -->
       <rect
         class="graph__bar"
-        x={xScale(i) + 2}
+        x={xScale(index) + 2}
         y={yScale(value)}
         width={barWidth - 4}
         height={height - padding.bottom - yScale(value)}
