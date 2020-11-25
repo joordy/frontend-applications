@@ -1,15 +1,34 @@
 <script>
-  import Lines from '/src/components/molecules/Lines.svelte'
   import Bars from '/src/components/molecules/Bars.svelte'
   import Map from '/src/components/molecules/Map.svelte'
+  import Footer from '/src/components/organisms/Footer.svelte'
+
   import { cleanMyData } from '/src/modules/cleanData'
   export let width
 </script>
 
 <style lang="scss">
-  p {
-    width: 70%;
-    margin-bottom: 8rem;
+  main {
+    position: relative;
+    section {
+      min-height: 75vh;
+      p {
+        font-size: 20px;
+        font-weight: 200;
+        width: 70%;
+        margin-bottom: 1.5rem;
+
+        &:last-of-type {
+          margin-top: 3rem;
+          // font-size: 16px;
+          span {
+            font-size: 20px;
+            font-weight: 700;
+            color: #03dac5;
+          }
+        }
+      }
+    }
   }
 </style>
 
@@ -17,22 +36,37 @@
   <p style="text-align: center; width: 100%;">Loading...</p>
 {:then data}
   <main bind:clientWidth={width}>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Est laboriosam
-      nesciunt atque doloribus illo temporibus numquam consequuntur. At id
-      corporis consectetur vitae? Debitis, culpa quod molestias at excepturi
-      ratione corrupti?Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Est laboriosam nesciunt atque doloribus illo temporibus numquam
-      consequuntur. At id corporis consectetur vitae? Debitis, culpa quod
-      molestias at excepturi ratione corrupti?Lorem ipsum dolor sit amet
-      consectetur adipisicing elit. Est laboriosam nesciunt atque doloribus illo
-      temporibus numquam consequuntur. At id corporis consectetur vitae?
-      Debitis, culpa quod molestias at excepturi ratione corrupti?
-    </p>
+    <section>
+      <p>
+        Binnen Nederland heb je een tal van mogelijkheden waar je kan parkeren.
+        Maar wat nou als je rekening moet houden met het feit dat je afhankelijk
+        bent van een laadpaal, of gelimiteerd bent met de hoogte van je
+        voertuig?
+      </p>
+      <p>
+        De data visualisatie maakt gebruik van de opendata sets die beschikbaar
+        zijn gesteld door de Rijksdienst voor het wegverkeer (RDW). Hierin is
+        gebruik gemaakt van een select aantal garages waar alle informatie zoals
+        locatie, capaciteit, doorrijhoogte en aantal laadpalen van beschikbaar
+        is.
+      </p>
+      <p>
+        In de visualisatie is te zien hoe het per stad geregeld is. Hierin wordt
+        uitgegaan van het gemiddelde.
+      </p>
+      <p>
+        <span>Disclaimer:</span>
+        de data waar geen informatie van bekend is, trekt het gemiddelde omhoog
+        of omlaag, of laat helemaal niks zien. De visualisaties zijn gebaseerd
+        op de data die geschikbaar is gesteld.
+      </p>
+    </section>
+
     <Bars {data} {width} />
-    <!-- <Lines {data} /> -->
     <Map {data} {width} />
   </main>
+
+  <Footer />
 {:catch error}
   <p>Something went wrong, please try again.</p>
   <p>{error.message}</p>

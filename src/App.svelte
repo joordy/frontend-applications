@@ -22,10 +22,11 @@
   :global(html) {
     background-color: #292929;
   }
-  :global(body) {
+  :global(header, main) {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 2rem;
+    /* background-color: hotpink; */
   }
   :global(section) {
     margin-bottom: 3rem;
@@ -42,10 +43,6 @@
   }
   :global(h3) {
     font-size: 1.25rem;
-    margin-bottom: 2rem;
-  }
-  :global(p) {
-    width: 400px;
     margin-bottom: 2rem;
   }
 </style>

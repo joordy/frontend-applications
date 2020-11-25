@@ -6,7 +6,8 @@
   export let width
 
   const graphData = countValues(data)
-  console.log(graphData)
+  // console.log(data)
+  console.log('graphData', graphData)
 
   // // label statement for X-value:
   let value
@@ -16,6 +17,7 @@
 
 <style lang="scss">
   h2 {
+    max-width: 21em;
     font-weight: 300;
     span {
       font-weight: 900;
@@ -23,7 +25,13 @@
       color: #03dac5;
     }
   }
-
+  p {
+    max-width: 500px;
+    margin-bottom: 1rem;
+    &:last-of-type {
+      margin-bottom: 3rem;
+    }
+  }
   article {
     height: 30px;
     display: flex;
@@ -51,11 +59,12 @@
     van de parkeergarages in de grote steden?
   </h2>
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus
-    voluptates assumenda placeat maiores modi rem, nemo enim sint iste sequi.
-    Placeat sequi temporibus deserunt enim minima exercitationem quidem eaque
-    tempora?
+    Het parkeren in de grote steden kan soms een lastige opgave zijn. Hoe zit
+    het met de gemiddelde waarden per stad? Zitten hier absolute uitschieters
+    tussen, en zo ja, waarin schieten zij uit?
   </p>
+
+  <p>Hieronder kan je het gemiddelde {checkForValue(value)} bekijken.</p>
   <article>
     <h3>Categorie:</h3>
     <select bind:value name="" id="">
@@ -66,6 +75,6 @@
   </article>
 
   <div bind:clientWidth={width}>
-    <BarChart {graphData} {width} formValue={value} height={660} />
+    <BarChart {graphData} {width} formValue={value} height={600} />
   </div>
 </section>
