@@ -17,7 +17,7 @@
   let toggleTooltip = false
   let tooltipData = {}
 
-  // Reactive declerations
+  // Reactive decelerations
   // Maps the needed data into a new format, with only value and label send to chart.
   $: graphBars = userData.map((item) => {
     let graphValue = item[formValue]
@@ -65,9 +65,6 @@
     // Set data.
     tooltipData = { selectedBarData, x, y }
     toggleTooltip = true
-    console.log(pointer(event))
-    console.log(index)
-    console.log(selectedBarData)
   }
 </script>
 
@@ -84,7 +81,7 @@
       fill: $ui-blue-green;
       stroke: none;
       opacity: 0.75;
-      transition: all 2300ms;
+      transition: all 1400ms;
       rx: 2;
     }
   }

@@ -41,34 +41,34 @@
   export let height
 
   const padding = { top: 20, right: 60, bottom: 75, left: 60 }
-  import * as d3 from 'd3'
-  import { onMount } from 'svelte'
-  import { feature } from 'topojson'
+  // import * as d3 from 'd3'
+  // import { onMount } from 'svelte'
+  // import { feature } from 'topojson'
 
-  const svg = d3.select('#map')
-  console.log(svg)
+  // const svg = d3.select('#map')
+  // console.log(svg)
 
-  const projection = d3.geoMercator().scale(5000).center([5.116667, 52.17])
-  const pathGenerator = d3.geoPath().projection(projection)
+  // const projection = d3.geoMercator().scale(5000).center([5.116667, 52.17])
+  // const pathGenerator = d3.geoPath().projection(projection)
 
-  function drawMap() {
-    d3.json('https://cartomap.github.io/nl/wgs84/gemeente_2020.topojson').then(
-      (data) => {
-        const gemeentes = feature(data, data.objects.gemeente_2020)
+  // function drawMap() {
+  //   d3.json('https://cartomap.github.io/nl/wgs84/gemeente_2020.topojson').then(
+  //     (data) => {
+  //       const gemeentes = feature(data, data.objects.gemeente_2020)
 
-        svg
-          .selectAll('path')
-          .data(gemeentes.features)
-          .enter()
-          .append('path')
-          .attr('d', pathGenerator)
-          .append('title')
-          .text((d) => `${d.properties.statnaam}, ID:${d.id}`)
-      }
-    )
-  }
+  //       svg
+  //         .selectAll('path')
+  //         .data(gemeentes.features)
+  //         .enter()
+  //         .append('path')
+  //         .attr('d', pathGenerator)
+  //         .append('title')
+  //         .text((d) => `${d.properties.statnaam}, ID:${d.id}`)
+  //     }
+  //   )
+  // }
 
-  drawMap()
+  // drawMap()
 </script>
 
 <style lang="scss">

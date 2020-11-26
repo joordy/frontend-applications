@@ -12,7 +12,7 @@
   @import 'src/styles/index.scss';
 
   section {
-    margin: $margin-12 0;
+    margin: 60vh 0;
     article {
       &:nth-of-type(1) {
         h2 {
@@ -54,30 +54,6 @@
       }
     }
   }
-
-  // article {
-  //   height: 3rem;
-  //   line-height: 3rem;
-  //   width: 50%;
-  //   display: flex;
-  //   justify-content: start;
-  //   align-items: middle;
-  //   margin-bottom: $margin-2;
-  //   h3 {
-  //     font-size: $h3-size;
-  //     font-weight: $semiBold;
-  //     text-transform: uppercase;
-  //   }
-  //   p {
-  //     font-size: $h2-size;
-  //     font-weight: $extraBold;
-  //     color: $ui-blue-green;
-  //     width: 9rem;
-  //   }
-  //   &:nth-of-type(2) p,
-  //   &:nth-of-type(4) p {
-  //     width: 6rem;
-  //   }
 </style>
 
 <section>

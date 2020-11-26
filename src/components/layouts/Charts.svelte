@@ -18,7 +18,6 @@
   main {
     position: relative;
     animation: moveIn 1s;
-
     section {
       min-height: 75vh;
       p {

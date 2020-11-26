@@ -52,6 +52,19 @@
         color: $ui-black;
       }
     }
+    div {
+      width: 100%;
+      height: 695px;
+      overflow: hidden;
+      img {
+        height: 100%;
+        width: auto;
+        transition: 0.3s ease;
+        &:hover {
+          transform: scale(1.4);
+        }
+      }
+    }
   }
 </style>
 
@@ -70,5 +83,12 @@
     </select>
   </article>
 
-  <MapChart {data} {width} height={700} />
+  <div {width}>
+    <img
+      src="https://user-images.githubusercontent.com/48051912/100394991-6f1a4e80-303f-11eb-9031-84be94161f1d.png"
+      alt=""
+    />
+  </div>
+
+  <!-- <MapChart {data} {width} height={700} /> -->
 </section>

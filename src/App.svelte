@@ -7,4 +7,5 @@
   @import 'src/styles/index.scss';
 </style>
 
+<!-- Sends clientWidth further into components as prop. -->
 <Home bind:clientWidth={width} />

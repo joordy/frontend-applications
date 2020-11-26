@@ -5,4 +5,5 @@
 </script>
 
 <Header />
+<!-- Sends clientWidth further into components as prop. -->
 <Charts bind:clientWidth={width} />

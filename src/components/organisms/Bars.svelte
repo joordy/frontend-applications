@@ -21,43 +21,45 @@
 <style lang="scss">
   @import 'src/styles/index.scss';
 
-  h2 {
-    max-width: 21em;
-    font-weight: $normal;
-    span {
-      font-weight: $extraBold;
-      font-size: $h2-size;
-      color: $ui-blue-green;
-    }
-  }
-  p {
-    max-width: 500px;
-    margin-bottom: $margin-1;
-    &:last-of-type {
-      margin-bottom: $margin-3;
-    }
-  }
-  article {
-    height: 30px;
-    display: flex;
-    justify-content: start;
-    align-content: center;
-    margin-bottom: $margin-3;
-    h3 {
+  section {
+    h2 {
+      max-width: 21em;
       font-weight: $normal;
-      font-size: $h4-size;
-      line-height: 40px;
+      span {
+        font-weight: $extraBold;
+        font-size: $h2-size;
+        color: $ui-blue-green;
+      }
     }
-    select {
-      height: 40px;
-      width: 220px;
-      border: 1px solid $ui-blue-green;
-      border-radius: 2px;
-      margin: 0 $margin-1;
+    p {
+      max-width: 500px;
+      margin-bottom: $margin-1;
+      &:last-of-type {
+        margin-bottom: $margin-3;
+      }
     }
-    select,
-    option {
-      color: $ui-black;
+    article {
+      height: 30px;
+      display: flex;
+      justify-content: start;
+      align-content: center;
+      margin-bottom: $margin-3;
+      h3 {
+        font-weight: $normal;
+        font-size: $h4-size;
+        line-height: 40px;
+      }
+      select {
+        height: 40px;
+        width: 220px;
+        border: 1px solid $ui-blue-green;
+        border-radius: 2px;
+        margin: 0 $margin-1;
+      }
+      select,
+      option {
+        color: $ui-black;
+      }
     }
   }
 </style>
