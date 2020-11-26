@@ -1,40 +1,35 @@
 <script>
-  import { geoMercator, geoPath } from 'd3'
-  import { onMount } from 'svelte'
-  import { feature } from 'topojson'
+  import { countValues } from '/src/modules/helpers/utils'
+  import { getMyData } from '/src/modules/helpers/getCityInfo'
 
-  // export let data
+  export let data
   export let width
   export let height
 
-  const padding = { top: 30, right: 30, bottom: 30, left: 30 }
+  const padding = { top: 20, right: 60, bottom: 75, left: 60 }
+  const mapData = countValues(data)
+  const uniqueCity = mapData.map((item) => item.name)
 
-  // const projection = geoMercator().scale(6000).center([5.116667, 52.17])
-  // const path = geoPath().projection(projection)
-  // onMount(async function () {
-  //   const map = await fetch(
-  //     'https://cartomap.github.io/nl/wgs84/gemeente_2020.topojson'
-  //   )
+  async function workwithData(uniqueCity) {
+    const blablabla = await getMyData(uniqueCity)
+    console.log('blablabla', blablabla)
+    return blablabla
+  }
 
-  //   const json = await map.json()
-  //   const topoData = feature(json, json.objects.gemeente_2020)
-  //   const land = {
-  //     ...topoData,
-  //     features: topoData.features,
-  //   }
-  //   mapData = land.features
-  // })
+  workwithData(uniqueCity)
 </script>
 
 <style lang="scss">
+  @import 'src/styles/index.scss';
+
   svg {
+    width: 100%;
+    margin-top: $margin-3;
+    margin-bottom: $margin-8;
     background-color: white;
   }
 </style>
 
-<svg
-  width={width + padding.left + padding.right}
-  height={height + padding.top + padding.bottom}
->
+<svg height={height + padding.top + padding.bottom}>
   <!-- map -->
 </svg>

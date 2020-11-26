@@ -12,6 +12,8 @@
 
   main {
     position: relative;
+    animation: moveIn 2s;
+
     section {
       min-height: 75vh;
       p {
@@ -19,18 +21,28 @@
         font-weight: $light;
         width: 70%;
         margin-bottom: $margin-1;
-
-        &:last-of-type {
-          margin-top: $margin-3;
-          span {
-            font-size: $largeP-size;
-            font-weight: $bold;
-            color: $ui-blue-green;
-          }
+        span {
+          font-size: $largeP-size;
+          font-weight: $bold;
+          color: $ui-blue-green;
         }
       }
     }
   }
+
+  // @keyframes moveIn {
+  //   0% {
+  //     margin-top: 100vh;
+  //   }
+
+  //   40% {
+  //     margin-top: 6vh;
+  //   }
+
+  //   100% {
+  //     margin-top: 0vh;
+  //   }
+  // }
 </style>
 
 {#await cleanMyData()}
@@ -55,12 +67,19 @@
         In de visualisatie is te zien hoe het per stad geregeld is. Hierin wordt
         uitgegaan van het gemiddelde.
       </p>
-      <p>
-        <span>Disclaimer:</span>
-        de data waar geen informatie van bekend is, trekt het gemiddelde omhoog
+      <!-- <p> -->
+      <span>Disclaimer:</span>
+      <ul>
+        <li>
+          De data waar niks van bekend is, is uit de dataset gefilterd. Zodat er
+          een overzicht kan worden gegenereerd waarbij
+        </li>
+        <li />
+      </ul>
+      <!-- de data waar geen informatie van bekend is, trekt het gemiddelde omhoog
         of omlaag, of laat helemaal niks zien. De visualisaties zijn gebaseerd
-        op de data die geschikbaar is gesteld.
-      </p>
+        op de data die geschikbaar is gesteld. -->
+      <!-- </p> -->
     </section>
 
     <Bars {data} {width} />
