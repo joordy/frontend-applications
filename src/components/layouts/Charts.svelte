@@ -13,7 +13,7 @@
 
   main {
     position: relative;
-    animation: moveIn 2s;
+    animation: moveIn 1.7s;
 
     section {
       min-height: 75vh;
@@ -31,19 +31,15 @@
     }
   }
 
-  // @keyframes moveIn {
-  //   0% {
-  //     margin-top: 100vh;
-  //   }
+  @keyframes moveIn {
+    0% {
+      margin-top: 80vh;
+    }
 
-  //   40% {
-  //     margin-top: 6vh;
-  //   }
-
-  //   100% {
-  //     margin-top: 0vh;
-  //   }
-  // }
+    100% {
+      margin-top: 0vh;
+    }
+  }
 </style>
 
 {#await cleanMyData()}
@@ -69,14 +65,14 @@
         uitgegaan van het gemiddelde.
       </p>
       <!-- <p> -->
-      <span>Disclaimer:</span>
+      <!-- <span>Disclaimer:</span>
       <ul>
         <li>
           De data waar niks van bekend is, is uit de dataset gefilterd. Zodat er
           een overzicht kan worden gegenereerd waarbij
         </li>
         <li />
-      </ul>
+      </ul> -->
       <!-- de data waar geen informatie van bekend is, trekt het gemiddelde omhoog
         of omlaag, of laat helemaal niks zien. De visualisaties zijn gebaseerd
         op de data die geschikbaar is gesteld. -->

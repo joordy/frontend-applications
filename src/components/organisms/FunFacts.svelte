@@ -31,14 +31,7 @@
         font-size: $h2-size;
         font-weight: $extraBold;
         color: $ui-blue-green;
-      }
-      &:nth-of-type(1) p,
-      &:nth-of-type(3) p {
         width: 9rem;
-      }
-      &:nth-of-type(2) p,
-      &:nth-of-type(4) p {
-        width: 6rem;
       }
     }
   }
@@ -53,7 +46,7 @@
   <article>
     <p>{allValues.totalChargers}</p>
 
-    <h3>Gemiddelde aantal laadpalen</h3>
+    <h3>aantal laadpalen</h3>
   </article>
   <article>
     <p>{allValues.avgDriveThrough}</p>
