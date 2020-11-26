@@ -1,7 +1,13 @@
 <script>
   import MapChart from '/src/components/molecules/MapChart.svelte'
+
+  // Exports of sizes & data
   export let data
   export let width
+
+  // Options for selectbox
+  let carOptions = ['personenauto', 'suv', 'bestelauto', 'personenauto']
+  let value
 </script>
 
 <style lang="scss">
@@ -10,14 +16,41 @@
   section {
     h2 {
       font-weight: $normal;
+      width: 625px;
       span {
         font-weight: $extraBold;
         font-size: $h2-size;
         color: $ui-blue-green;
+        &:first-letter {
+          text-transform: uppercase;
+        }
       }
     }
     p {
       max-width: 500px;
+    }
+    article {
+      height: 30px;
+      display: flex;
+      justify-content: start;
+      align-content: center;
+      margin: $margin-3 0;
+      h3 {
+        font-weight: $normal;
+        font-size: $h4-size;
+        line-height: 40px;
+      }
+      select {
+        height: 40px;
+        width: 220px;
+        border: 1px solid $ui-blue-green;
+        border-radius: 2px;
+        margin: 0 $margin-1;
+      }
+      select,
+      option {
+        color: $ui-black;
+      }
     }
   }
 </style>
@@ -25,13 +58,17 @@
 <section>
   <h2>
     Ik heb een
-    <span>personenauto</span>. Waar in Nederland kan ik deze auto parkeren?
+    <span>{value}</span>. Waar in Nederland kan ik deze auto parkeren?
   </h2>
-  <p>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente, iusto
-    quibusdam? Debitis, laboriosam soluta incidunt, neque quaerat mollitia
-    tempora veniam odit deleniti quo animi dolores quibusdam earum tempore
-    itaque? Non.
-  </p>
+  <p>Hoe zit het met het parkeren van mijn {value} in de stad?</p>
+  <article>
+    <h3>Type auto:</h3>
+    <select bind:value name="" id="">
+      {#each carOptions as option}
+        <option value={option}>{option}</option>
+      {/each}
+    </select>
+  </article>
+
   <MapChart {data} {width} height={700} />
 </section>

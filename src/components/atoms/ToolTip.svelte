@@ -1,4 +1,5 @@
 <script>
+  //Export tooltip data
   export let barData
   export let x
   export let y
@@ -29,6 +30,7 @@
   }
 </style>
 
+<!-- Tooltip with the data of the selected bar -->
 <g class="information-widget" transform="translate({x}, {y})">
   <rect />
   <text x="5" y="18">

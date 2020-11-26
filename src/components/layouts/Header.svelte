@@ -7,6 +7,10 @@
   h1 {
     margin-top: $margin-4;
     margin-bottom: $margin-4;
+    span {
+      font-size: $h1-size;
+      color: $ui-blue-green;
+    }
   }
   div {
     top: 0;
@@ -14,7 +18,7 @@
     position: fixed;
     z-index: -1;
     img {
-      opacity: 0.2;
+      opacity: 0.12;
       height: auto;
       width: 100vw;
     }
@@ -23,8 +27,12 @@
 
 <header>
   <h1>
-    De auto's worden steeds groter, passen ze nog in parkeergarages in de grote
-    steden van Nederland?
+    De
+    <span>auto's</span>
+    worden steeds groter, passen ze nog in
+    <span>parkeergarages</span>
+    in de grote steden van
+    <span>Nederland</span>?
   </h1>
 
   <div>

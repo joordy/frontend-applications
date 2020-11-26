@@ -84,25 +84,28 @@
       fill: $ui-blue-green;
       stroke: none;
       opacity: 0.75;
-      transition: all 300ms;
+      transition: all 2300ms;
       rx: 2;
     }
   }
 </style>
 
 <svg height={height + padding.top + padding.bottom}>
+  <!-- yAxis of chart, as component -->
   <g class="yAxis axis">
     {#each yAxisTicks() as yTick}
       <AxisLeft {yTick} {yScale} />
     {/each}
   </g>
 
+  <!-- xAxis of chart, as component -->
   <g class="xAxis axis">
     {#each graphBars as { label }, index}
       <AxisBottom {index} {height} {barWidth} {xScale} {label} />
     {/each}
   </g>
 
+  <!-- The bars of the barchart, passes data -->
   <g class="allBars">
     {#each graphBars as { value }, index}
       <rect
@@ -117,6 +120,7 @@
     {/each}
   </g>
 
+  <!-- Toggles the tooltip, if true, show it, otherwise not. Passes also the data and location of cursor -->
   {#if toggleTooltip}
     <ToolTip
       barData={tooltipData.selectedBarData}

@@ -2,11 +2,16 @@
   import BarChart from '/src/components/molecules/BarChart.svelte'
   import { countValues, checkForValue } from '/src/modules/helpers/utils'
 
+  // Exports of sizes & data
   export let data
   export let width
 
+  // Place local Storage
   const barData = countValues(data) // Filters data
-  let value // Label statement
+  localStorage.setItem('barData', JSON.stringify(barData))
+
+  // Label statement & optionlist-filter for label
+  let value
   let optionList = Object.keys(barData[0])
   optionList = optionList.filter(
     (item) => item !== 'name' && item !== 'chargingPoints'
@@ -41,8 +46,13 @@
     h3 {
       font-weight: $normal;
       font-size: $h4-size;
+      line-height: 40px;
     }
     select {
+      height: 40px;
+      width: 220px;
+      border: 1px solid $ui-blue-green;
+      border-radius: 2px;
       margin: 0 $margin-1;
     }
     select,
@@ -67,6 +77,8 @@
   <p>Hieronder kan je het gemiddelde {checkForValue(value)} bekijken.</p>
   <article>
     <h3>Categorie:</h3>
+
+    <!-- Binds value of selectbox in component -->
     <select bind:value name="" id="">
       {#each optionList as option}
         <option value={option}>{checkForValue(option)}</option>
@@ -74,6 +86,7 @@
     </select>
   </article>
 
+  <!-- Binds width of browser in component -->
   <div bind:clientWidth={width}>
     <BarChart {barData} {width} formValue={value} height={600} />
   </div>

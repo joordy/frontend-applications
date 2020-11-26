@@ -1,4 +1,5 @@
 <script>
+  // Exp  // Export axis info
   export let yTick
   export let yScale
 </script>
@@ -16,6 +17,7 @@
   }
 </style>
 
+<!-- Creates yAxis with custom tick values -->
 <g class="tick" transform="translate(30, {yScale(yTick)})">
   <text y="-4">{yTick}</text>
 </g>

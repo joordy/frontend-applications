@@ -1,4 +1,5 @@
 <script>
+  // Export axis info
   export let index
   export let height
   export let barWidth
@@ -19,6 +20,7 @@
   }
 </style>
 
+<!-- Creates xAxis with all the city names -->
 <g
   class="tick"
   transform="translate({xScale(index)}, {height - 65}), rotate(90)"
