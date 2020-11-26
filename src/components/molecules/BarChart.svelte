@@ -12,15 +12,12 @@
 
   // Graph values
   const xValue = 'name'
-  const padding = { top: 20, right: 60, bottom: 75, left: 60 }
+  const padding = { top: 20, right: 60, bottom: 75, left: 50 }
   let userData = barData.slice(0, 50)
   let toggleTooltip = false
   let tooltipData = {}
 
   // Reactive declerations
-  // Set width of SVG
-  $: graphWidth = width - 180
-
   // Maps the needed data into a new format, with only value and label send to chart.
   $: graphBars = userData.map((item) => {
     let graphValue = item[formValue]
@@ -77,23 +74,23 @@
 <style lang="scss">
   @import 'src/styles/index.scss';
 
-  .graph__bar {
-    &:hover {
-      opacity: 0.4;
-      cursor: pointer;
+  svg {
+    width: 100%;
+    .graph__bar {
+      &:hover {
+        opacity: 0.4;
+        cursor: pointer;
+      }
+      fill: $ui-blue-green;
+      stroke: none;
+      opacity: 0.75;
+      transition: all 300ms;
+      rx: 2;
     }
-    fill: $ui-blue-green;
-    stroke: none;
-    opacity: 0.75;
-    transition: all 300ms;
-    rx: 2;
   }
 </style>
 
-<svg
-  width={graphWidth + padding.left + padding.right}
-  height={height + padding.top + padding.bottom}
->
+<svg height={height + padding.top + padding.bottom}>
   <g class="yAxis axis">
     {#each yAxisTicks() as yTick}
       <AxisLeft {yTick} {yScale} />

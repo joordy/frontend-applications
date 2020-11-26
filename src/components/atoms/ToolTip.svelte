@@ -1,5 +1,5 @@
 <script>
-  export let graphData
+  export let barData
   export let x
   export let y
 </script>
@@ -32,10 +32,10 @@
 <g class="information-widget" transform="translate({x}, {y})">
   <rect />
   <text x="5" y="18">
-    <tspan>Parkeergarage: {graphData.name}</tspan>
+    <tspan>Parkeergarage: {barData.name}</tspan>
   </text>
-  <text x="5" y="34">Aantal garages: {graphData.totalGarage}</text>
-  <text x="5" y="50">Capaciteit: {graphData.totalCapacity}</text>
-  <text x="5" y="66">Gem. doorrijhoogte: {graphData.avgDriveThrough}</text>
-  <text x="5" y="82">Aantal laadpalen: {graphData.chargingPoints}</text>
+  <text x="5" y="34">Aantal garages: {barData.totalGarage}</text>
+  <text x="5" y="50">Capaciteit: {barData.totalCapacity}</text>
+  <text x="5" y="66">Gem. doorrijhoogte: {barData.avgDriveThrough}</text>
+  <text x="5" y="82">Aantal laadpalen: {barData.chargingPoints}</text>
 </g>
