@@ -1,4 +1,4 @@
-# Frontend Applications
+# :chart: Frontend Applications
 
 ![D3  Graph](https://user-images.githubusercontent.com/48051912/100396104-139e8f80-3044-11eb-94c4-fb0293aedc24.gif)
 ![De Volkskrant](https://camo.githubusercontent.com/dc694b1e340d04b2def00a1188b49fef8fd3ff1c8888a9b2e39cf98ae2baa965/68747470733a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f636f6d6d6f6e732f7468756d622f622f62332f566f6c6b736b72616e742e7376672f3132303070782d566f6c6b736b72616e742e7376672e706e67)
@@ -19,13 +19,21 @@ You can visit my data story [here](https://fa-jorrr.netlify.app)
 
 ### Research question
 
-**The cars are getting bigger and bigger, do they still fit in parking garages in the big cities of the Netherlands? Or do they have other problems**
+- The cars are getting bigger and bigger, do they still fit in parking garages in the big cities of the Netherlands? Or do they have other problems
 
 ### Sub questions
 
 - How many parking garages does a city has?
 - How is the parking capacity divided
 - What is the maximum Drive-Through height, is it accessible for everyone?
+
+### Assumptions
+
+- **Location** I expect that bigger cities has more spots than smaller towns
+- **Capacity**: I expect that parking areas have more capacity in the big cities.
+- **Maximum Vehicle Height**: I expect that in small towns, there are larger parking areas so people can ride in with bigger cars..
+- **Disabled access**: I expect that 25% of all the parking area has access for disabled people.
+- **Charging points**: I expect that every parking area has at least one charging point.
 
 ## :rocket: Get my code
 
@@ -55,7 +63,7 @@ npm run build
 
 ## :key: Deployment link
 
-[fa-jorrr.netlify.app](https://fa-jorrr.netlify.app/)
+[Check it out](https://fa-jorrr.netlify.app/)
 
 <!--
 
@@ -78,7 +86,20 @@ For my project I'll be using the [Location API](https://opendata.rdw.nl/Parkeren
 #### Code Sources:
 
 - MDN. (2020, September 28). Spread syntax (...). Retrieved 18 November 2020, from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
-- Svelte (2020, November). from https://svelte.dev/
+- MDN. (2020, October 8). Array.prototype.forEach(). MDN Web Docs. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+- MDN. (2020b, November 23). Array.prototype.reduce(). MDN Web Docs. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+- MDN. (2020a, September 2). Window.localStorage. MDN Web Docs. https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+- Svelte. (n.d.). Svelte tutorial. Retrieved November 16, 2020, from https://svelte.dev/tutorial/basics
+- Svelte. (n.d.). Svelte examples. Retrieved November 19, 2020, from https://svelte.dev/examples#bar-chart
+- Frost, B. (2020, August 31). Atomic Design. Brad Frost. https://bradfrost.com/blog/post/atomic-web-design/
+- Keheller, C. (2018). Data Visualization Course 2018. YouTube. https://www.youtube.com/playlist?list=PL9yYRbwpkykvOXrZumtZWbuaXWHvjD8gi
+- All About Web. (2020, August 15). #AllAboutWeb Effective data visualization with #sveltejs and D3 - Matthias Stahl. YouTube. https://www.youtube.com/watch?v=GYXuOvX_fns
+- Open Source. (n.d.). ESLinter. ESLint. Retrieved November 16, 2020, from https://eslint.org/
+- G, D. (n.d.). dominikg/svite. GitHub. Retrieved November 16, 2020, from https://github.com/dominikg/svite
+
+#### Other sources
+
+- Tuce. (2018, September 6). gray concrete columns. Unsplash. https://unsplash.com/photos/tnMPwOyQ39E
 
 ## :lock: License
 
