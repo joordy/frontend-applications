@@ -60,7 +60,7 @@ You can visit my data story [here](https://fa-jorrr.netlify.app)
 ### Build export
 
 ```bash
-npm run build
+  npm run build
 ```
 
 ---
