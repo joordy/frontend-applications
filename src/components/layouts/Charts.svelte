@@ -13,7 +13,7 @@
 
   main {
     position: relative;
-    animation: moveIn 1.7s;
+    animation: moveIn 1.2s;
 
     section {
       min-height: 75vh;
@@ -36,6 +36,9 @@
       margin-top: 80vh;
     }
 
+    75% {
+      margin-top: 10vh;
+    }
     100% {
       margin-top: 0vh;
     }
