@@ -5,15 +5,15 @@
   import { scaleLinear, max, pointer } from 'd3'
 
   // Exported values
-  export let graphData
+  export let barData
   export let width
   export let height
   export let formValue
 
   // Graph values
-  const label = 'name'
+  const xValue = 'name'
   const padding = { top: 20, right: 60, bottom: 75, left: 60 }
-  let userData = graphData.slice(0, 50)
+  let userData = barData.slice(0, 50)
   let toggleTooltip = false
   let tooltipData = {}
 
@@ -25,7 +25,7 @@
   $: graphBars = userData.map((item) => {
     let graphValue = item[formValue]
     let layout = {
-      label: item[label],
+      label: item[xValue],
       value: graphValue == undefined ? 0 : parseFloat(graphValue),
     }
     return layout
@@ -63,7 +63,7 @@
   // Function to change the toggleTooltip to true, and pass in the exact data
   function showTooltip(event) {
     const index = this.getAttribute('data-index')
-    const selectedBarData = graphData[index]
+    const selectedBarData = barData[index]
     const [x, y] = pointer(event)
     // Set data.
     tooltipData = { selectedBarData, x, y }
@@ -122,7 +122,7 @@
 
   {#if toggleTooltip}
     <ToolTip
-      graphData={tooltipData.selectedBarData}
+      barData={tooltipData.selectedBarData}
       x={tooltipData.x}
       y={tooltipData.y}
     />

@@ -5,13 +5,9 @@
   export let data
   export let width
 
-  const graphData = countValues(data)
-  // console.log(data)
-  console.log('graphData', graphData)
-
-  // // label statement for X-value:
-  let value
-  let optionList = Object.keys(graphData[0])
+  const barData = countValues(data) // Filters data
+  let value // Label statement
+  let optionList = Object.keys(barData[0])
   optionList = optionList.filter(
     (item) => item !== 'name' && item !== 'chargingPoints'
   )
@@ -79,6 +75,6 @@
   </article>
 
   <div bind:clientWidth={width}>
-    <BarChart {graphData} {width} formValue={value} height={600} />
+    <BarChart {barData} {width} formValue={value} height={600} />
   </div>
 </section>

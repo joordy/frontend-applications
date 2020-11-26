@@ -20,6 +20,7 @@ export const mergeData = (datasrc1, datasrc2) => {
 
 // Filter the data, and convert numbers to valid integers.
 export const filterData = (data) => {
+  // const getLocation = getCoordinates(city)
   // filteredValues(data)
   return data.map((item) => {
     return {
@@ -44,6 +45,20 @@ export const filterData = (data) => {
     }
   })
 }
+
+// async function getCoordinates(city) {
+//   const geo = await getData(`https://geocode.search.hereapi.com/v1/geocode?apiKey=B1CkIQ-gETJxbw3X00kk3YE0S2gkkODYpcBk_Nl2Bf4&q=${cityName},%20NL`);
+//   return geo.items[0] ? geo.items[0].position : {lat: null, lng: null};
+// }
+
+// const getCoordinates = async (city) => {
+//   const locationGeo = await receiveData(
+//     `https://geocode.search.hereapi.com/v1/geocode?q=Invalidenstr+117%2C+${city}&apiKey={K6Vrb51b9j-7Y21zaMKN1b5hWvDBR0cpN1iCOweFshg}`
+//   )
+//   return locationGeo.items[0]
+//     ? locationGeo.items[0].position
+//     : { lat: null, long: null }
+// }
 
 // Give maxDriveThrough average size when number is 0.
 const getMaxDrive = (item) => {
@@ -167,9 +182,7 @@ const parseInfo = (a, dataset, allCities) => {
         cityCount++
       }
     })
-    console.log(avg)
     obj.totalGarage = cityCount
-
     let newAvg = avg / cityCount
     obj.totalCapacity = num1
     obj.avgDriveThrough = parseInt(newAvg)
@@ -177,33 +190,3 @@ const parseInfo = (a, dataset, allCities) => {
     // obj.totalGarage = cityCount
   })
 }
-
-// let countArr = []
-// allCities.forEach((name) => {
-//   let uniqueCity = countArr.find((item) => item.city === name)
-//   if (uniqueCity === undefined) {
-//     countArr.push({
-//       city: name,
-//       value: 0,
-//     })
-//   }
-//   countArr.find((item) => item.city === name).value += 1
-// })
-// console.log(countArr)
-// const cityTotal = getCityTotal(allCities)
-//let name
-// const getCityTotal = (allCities) => {
-//   let countArr = []
-//   allCities.forEach((name) => {
-//     let uniqueCity = countArr.find((item) => item.city === name)
-//     if (uniqueCity === undefined) {
-//       countArr.push({
-//         city: name,
-//         value: 0,
-//       })
-//     }
-//     countArr.find((item) => item.city === name).value += 1
-//   })
-//   console.log(countArr)
-//   return countArr
-// }

@@ -23,5 +23,5 @@
   class="tick"
   transform="translate({xScale(index)}, {height - 65}), rotate(90)"
 >
-  <text x={barWidth / 2} y="-4">{label}</text>
+  <text x={barWidth / 2} y="-8">{label}</text>
 </g>

@@ -1,7 +1,19 @@
 <script>
   import MapChart from '/src/components/molecules/MapChart.svelte'
+  import { countValues } from '/src/modules/helpers/utils'
+  import { getMyData } from '/src/modules/helpers/getCityInfo'
+  import { onMount } from 'svelte'
   export let data
   export let width
+
+  const mapData = countValues(data)
+  const uniqueCity = mapData.map((item) => item.name)
+  let fetchedData = getMyData(uniqueCity).then()
+
+  // onMount(async () => {
+  //   fetchedData = await getMyData(uniqueCity)
+  // })
+  console.log(fetchedData)
 </script>
 
 <style lang="scss">
@@ -33,5 +45,5 @@
     tempora veniam odit deleniti quo animi dolores quibusdam earum tempore
     itaque? Non.
   </p>
-  <MapChart {data} {width} />
+  <MapChart {data} {width} height={700} />
 </section>
