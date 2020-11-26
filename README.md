@@ -1,6 +1,6 @@
 # :chart: Frontend Applications
 
-![gif](https://user-images.githubusercontent.com/48051912/100397632-033de300-304b-11eb-8b2f-27b84858fb6a.gif)
+![D3  Graph](https://user-images.githubusercontent.com/48051912/100396104-139e8f80-3044-11eb-94c4-fb0293aedc24.gif)
 ![De Volkskrant](https://camo.githubusercontent.com/dc694b1e340d04b2def00a1188b49fef8fd3ff1c8888a9b2e39cf98ae2baa965/68747470733a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f636f6d6d6f6e732f7468756d622f622f62332f566f6c6b736b72616e742e7376672f3132303070782d566f6c6b736b72616e742e7376672e706e67)
 
 The Dutch newspaper _De Volkskrant_ asked us to look for some interesting insights of the subject The car in the city. To get the insights, we can use the datasets of the RDW. Inside the datasets of the RDW, we can look for interesting insights and patterns about parking spaces, all the cars in Holland and other vehicle data. The data describes where all the parking spots are, who owned them, and which cars are registered. During the past 6 weeks we will worked on a datavisualization made with Svelte, D3 library and SVG's. The redactors of the Volkskrant can use our work for a possible article in their newspaper.
