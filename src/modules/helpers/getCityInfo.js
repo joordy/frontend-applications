@@ -20,9 +20,9 @@ function newCityObj(uniqueCity) {
   return Promise.all(result)
 }
 
-async function getCityLocation(cityName) {
+async function getCityLocation(city) {
   const geo = await receiveData(
-    `https://geocode.search.hereapi.com/v1/geocode?apiKey=B1CkIQ-gETJxbw3X00kk3YE0S2gkkODYpcBk_Nl2Bf4&q=${cityName},%20NL`
+    `https://geocode.search.hereapi.com/v1/geocode?apiKey=B1CkIQ-gETJxbw3X00kk3YE0S2gkkODYpcBk_Nl2Bf4&q=${city},%20NL`
   )
   const latAndLong = geo.items[0]
     ? geo.items[0].position
