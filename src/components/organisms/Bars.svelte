@@ -90,6 +90,6 @@
 
   <!-- Binds width of browser in component -->
   <div bind:clientWidth={width}>
-    <BarChart {barData} {width} formValue={value} height={600} />
+    <BarChart {barData} {width} formValue={value} height={500} />
   </div>
 </section>
