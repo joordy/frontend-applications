@@ -35,6 +35,8 @@ You can visit my data story [here](https://fa-jorrr.netlify.app)
 - **Disabled access**: I expect that 25% of all the parking area has access for disabled people.
 - **Charging points**: I expect that every parking area has at least one charging point.
 
+---
+
 ## :rocket: Get my code
 
 ### Clone the repository
@@ -61,20 +63,13 @@ You can visit my data story [here](https://fa-jorrr.netlify.app)
 npm run build
 ```
 
+---
+
 ## :key: Deployment link
 
 [Check it out](https://fa-jorrr.netlify.app/)
 
-<!--
-
-## <!-- ## :page_facing_up: Research Case
-
-## :flashlight: Concept
-I'll be making a data visualization with Javascript D3 of how well developed the parking garages are in the big cities from holland. I'll be comparing the Drive-through height, EV-charging capacity and the disabled access possibilities. By using the location I display where the optimal parking garages are located. To read more about it, make sure to check out my [documentation](https://github.com/joordy/frontend-data/wiki/Concept).
 ---
-## :chart: Dataset
-For my project I'll be using the [Location API](https://opendata.rdw.nl/Parkeren/GEO-Parkeer-Garages/t5pc-eb34) and [Specification API](https://opendata.rdw.nl/Parkeren/Open-Data-Parkeren-SPECIFICATIES-PARKEERGEBIED/b3us-f26s) form the RDW.
----  -->
 
 ## :mag: Sources
 
@@ -101,6 +96,19 @@ For my project I'll be using the [Location API](https://opendata.rdw.nl/Parkeren
 
 - Tuce. (2018, September 6). gray concrete columns. Unsplash. https://unsplash.com/photos/tnMPwOyQ39E
 
+---
+
 ## :lock: License
 
 This is a repository which is licensed as MIT. Jordy Fronik ©️ 2020.
+
+<!--
+
+## <!-- ## :page_facing_up: Research Case
+
+## :flashlight: Concept
+I'll be making a data visualization with Javascript D3 of how well developed the parking garages are in the big cities from holland. I'll be comparing the Drive-through height, EV-charging capacity and the disabled access possibilities. By using the location I display where the optimal parking garages are located. To read more about it, make sure to check out my [documentation](https://github.com/joordy/frontend-data/wiki/Concept).
+---
+## :chart: Dataset
+For my project I'll be using the [Location API](https://opendata.rdw.nl/Parkeren/GEO-Parkeer-Garages/t5pc-eb34) and [Specification API](https://opendata.rdw.nl/Parkeren/Open-Data-Parkeren-SPECIFICATIES-PARKEERGEBIED/b3us-f26s) form the RDW.
+---  -->
