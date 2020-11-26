@@ -1,4 +1,6 @@
-// Fetch received URL's and convert them to JSON.
+// ---------------------------------------------------------------------------- //
+// ---------------Fetch received URL's and convert them to JSON.--------------- //
+// ---------------------------------------------------------------------------- //
 export const receiveData = async (url) => {
   try {
     const dataSource = await fetch(url)
@@ -8,8 +10,10 @@ export const receiveData = async (url) => {
   }
 }
 
-// Merge the two datasets together. Made use of the spread syntax:
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+// ---------------------------------------------------------------------------- //
+// ------Merge the two datasets together. Made use of the spread syntax.------- //
+// ---------------------------------------------------------------------------- //
+// Used source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
 export const mergeData = (datasrc1, datasrc2) => {
   const result = datasrc1.map((src1) => {
     const spec = datasrc2.find((src2) => src1.areaid === src2.areaid)
@@ -18,10 +22,10 @@ export const mergeData = (datasrc1, datasrc2) => {
   return result
 }
 
-// Filter the data, and convert numbers to valid integers.
+// ---------------------------------------------------------------------------- //
+// -----------Filter the data, and convert numbers to valid integers.---------- //
+// ---------------------------------------------------------------------------- //
 export const filterData = (data) => {
-  // const getLocation = getCoordinates(city)
-  // filteredValues(data)
   return data.map((item) => {
     return {
       areaDesc: item.areadesc,
@@ -46,23 +50,10 @@ export const filterData = (data) => {
   })
 }
 
-// async function getCoordinates(city) {
-//   const geo = await getData(`https://geocode.search.hereapi.com/v1/geocode?apiKey=B1CkIQ-gETJxbw3X00kk3YE0S2gkkODYpcBk_Nl2Bf4&q=${cityName},%20NL`);
-//   return geo.items[0] ? geo.items[0].position : {lat: null, lng: null};
-// }
-
-// const getCoordinates = async (city) => {
-//   const locationGeo = await receiveData(
-//     `https://geocode.search.hereapi.com/v1/geocode?q=Invalidenstr+117%2C+${city}&apiKey={K6Vrb51b9j-7Y21zaMKN1b5hWvDBR0cpN1iCOweFshg}`
-//   )
-//   return locationGeo.items[0]
-//     ? locationGeo.items[0].position
-//     : { lat: null, long: null }
-// }
-
-// Give maxDriveThrough average size when number is 0.
+// ---------------------------------------------------------------------------- //
+// -----------Give maxDriveThrough average size when number is 0.-------------- //
+// ---------------------------------------------------------------------------- //
 const getMaxDrive = (item) => {
-  // console.log(item)
   if (item === 0) {
     return parseInt(400)
   } else if (item === undefined) {
@@ -72,41 +63,46 @@ const getMaxDrive = (item) => {
   }
 }
 
-// Gets name between the '( )' and place it inside an new object value.
+// ---------------------------------------------------------------------------- //
+// ----Gets name between the '( )' and place it inside an new object value.---- //
+// ---------------------------------------------------------------------------- //
 // Used source:  https://stackoverflow.com/questions/49676897/javascript-es6-count-duplicates-to-an-array-of-objects && help of @lars-ruijs
 const getCityName = (parkingName) => {
   let regex = /\(/g
   const checker = regex.test(parkingName)
-  if (checker === true) {
+  if (checker === false) {
+    return null
+  } else {
     let name = parkingName
     let regPattern = /\(([^)]+)\)/
     let cityname = regPattern.exec(name)[1]
     return cityname.toLowerCase()
-  } else {
-    return null
   }
 }
 
-// Converts reactive decleration to readable Dutch string.
+// ---------------------------------------------------------------------------- //
+// ---------Converts reactive decleration to readable Dutch string.------------ //
+// ---------------------------------------------------------------------------- //
 export const checkForValue = (value) => {
-  if (value === 'totalCapacity') {
-    value = 'parkeer capaciteit'
-    return value
-  } else if (value === 'avgDriveThrough') {
-    value = 'maximale doorrijhoogte'
-    return value
+  switch (value) {
+    case 'totalCapacity':
+      value = 'parkeer capaciteit'
+      return value
+    case 'avgDriveThrough':
+      value = 'maximale doorrijhoogte'
+      return value
+    case 'chargingPoints':
+      value = 'laadpunten'
+      return value
+    case 'totalGarage':
+      value = 'aantal parkeergarages'
+      return value
   }
-  // else if (value === 'chargingPoints') {
-  //   value = 'laadpunten'
-  //   return value
-  // }
-  else if (value === 'totalGarage') {
-    value = 'totaal aantal parkeergarages'
-    return value
-  }
-  return value
 }
 
+// ---------------------------------------------------------------------------- //
+// ----------------Merge cities together and count values---------------------- //
+// ---------------------------------------------------------------------------- //
 // Merges all the usable variables for barchart together
 export const countValues = (dataset) => {
   const newData = filterCities(dataset)
@@ -151,25 +147,15 @@ const createObj = (allCities) => {
   })
 }
 
-// // Changes city name to first letter Uppercase
-// // Used source: https://www.geeksforgeeks.org/how-to-make-first-letter-of-a-string-uppercase-in-javascript/
-// const newCityName = (city) => {
-//   console.log
-//   if (city === null) {
-//     return
-//   } else {
-//     return city.charAt(0).toUpperCase() + city.slice(1)
-//   }
-// }
-
 // Parses all the information to the specific cities.
 // With a bit of help from @veerleprins
-const parseInfo = (a, dataset, allCities) => {
+const parseInfo = (newDataset, dataset) => {
   let num1
   let cityCount
   let avg
   let num2
-  a.forEach((obj) => {
+
+  newDataset.forEach((obj) => {
     num1 = 0
     cityCount = 0
     avg = 0
@@ -187,6 +173,33 @@ const parseInfo = (a, dataset, allCities) => {
     obj.totalCapacity = num1
     obj.avgDriveThrough = parseInt(newAvg)
     obj.chargingPoints = num2
-    // obj.totalGarage = cityCount
   })
+}
+
+// ---------------------------------------------------------------------------- //
+// ----------------------Count total values of array--------------------------- //
+// ---------------------------------------------------------------------------- //
+
+export const countAllValues = (dataArray) => {
+  const allValues = totalValues(dataArray)
+  return allValues
+}
+
+const totalValues = (dataArray) => {
+  let totalObj = {
+    totalGarage: countAllItems(dataArray, 'totalGarage'),
+    totalCap: countAllItems(dataArray, 'totalCapacity'),
+    totalChargers: parseFloat(
+      countAllItems(dataArray, 'chargingPoints') / dataArray.length
+    ).toFixed(1),
+    avgDriveThrough: parseInt(
+      countAllItems(dataArray, 'avgDriveThrough') / dataArray.length
+    ),
+  }
+  return totalObj
+}
+
+const countAllItems = (dataArray, column) => {
+  let totalAmount = dataArray.reduce((accum, item) => accum + item[column], 0)
+  return totalAmount
 }

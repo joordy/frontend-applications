@@ -1,5 +1,6 @@
 <script>
   import Bars from '/src/components/organisms/Bars.svelte'
+  import FunFacts from '/src/components/organisms/FunFacts.svelte'
   import Map from '/src/components/organisms/Map.svelte'
   import Footer from '/src/components/layouts/Footer.svelte'
 
@@ -83,6 +84,7 @@
     </section>
 
     <Bars {data} {width} />
+    <FunFacts {data} />
     <Map {data} {width} />
   </main>
 

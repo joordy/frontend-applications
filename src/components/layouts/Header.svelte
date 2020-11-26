@@ -14,7 +14,7 @@
     position: fixed;
     z-index: -1;
     img {
-      opacity: 0.1;
+      opacity: 0.2;
       height: auto;
       width: 100vw;
     }
@@ -29,7 +29,7 @@
 
   <div>
     <img
-      src="https://user-images.githubusercontent.com/48051912/100159860-d359d880-2eae-11eb-90a5-771098620124.jpg"
+      src="https://user-images.githubusercontent.com/48051912/100353912-92b5a880-2fef-11eb-811f-7e3718c12cda.jpg"
       alt="Parking Garage"
     />
   </div>
