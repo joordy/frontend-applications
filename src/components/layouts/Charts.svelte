@@ -80,8 +80,8 @@
     </section>
 
     <Bars {data} {width} />
-    <FunFacts {data} />
     <Map {data} {width} />
+    <FunFacts {data} />
     <Disclaimer {data} />
   </main>
 
