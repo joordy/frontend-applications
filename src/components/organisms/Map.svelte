@@ -14,6 +14,7 @@
   @import 'src/styles/index.scss';
 
   section {
+    margin: 40vh 0;
     h2 {
       font-weight: $normal;
       width: 625px;

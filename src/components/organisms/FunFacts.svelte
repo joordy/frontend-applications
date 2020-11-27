@@ -21,6 +21,7 @@
         p {
           display: block;
           width: 500px;
+          margin-bottom: $margin-2;
         }
       }
       &:nth-of-type(2) {
@@ -58,14 +59,23 @@
 
 <section>
   <article>
-    <h2>Interessante bevindingen:</h2>
+    <h2>Conclusies omtrent de visualisaties</h2>
 
     <p>
-      In de visualisaties zijn er een paar dingen die opvallen, uiteraard hebben
-      Amsterdam en Rotterdam de meeste parkeerplekken, maar ook is het
-      makkelijker om je elektrische auto op te laden in een parkeergarage in
-      Rotterdam. dan in Amsterdam.
+      In de visualisatie zijn er een paar dingen die opvallen, uiteraard hebben
+      Amsterdam en Rotterdam de meeste parkeergarages en plekken, maar ook is
+      het nog relatief makkelijk om de auto daar te parkeren wat betreft de
+      doorrijhoogte. In bijvoorbeeld Purmerend, Zeist en Zandvoort zijn de
+      parkeergarages relatief laag. De hoogtes variëren tussen de 1.85 en 2
+      meter hoog.
     </p>
+
+    <p>
+      In de beschikbare data zijn bijna 100.000 parkeerplaatsen beschikbaar,
+      verdeeld over 355 locaties.
+    </p>
+
+    <p />
   </article>
 
   <article>
