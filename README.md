@@ -7,7 +7,7 @@
 
 The Dutch newspaper _De Volkskrant_ asked us to look for some interesting insights of the subject The car in the city. To get the insights, we can use the datasets of the RDW. Inside the datasets of the RDW, we can look for interesting insights and patterns about parking spaces, all the cars in Holland and other vehicle data. The data describes where all the parking spots are, who owned them, and which cars are registered. During the past 6 weeks we will worked on a datavisualization made with Svelte, D3 library and SVG's. The redactors of the Volkskrant can use our work for a possible article in their newspaper.
 
-## :page_facing_up: Data story
+## :oncoming_automobile: Data story
 
 My data story describes how the parking garages are nowadays. Cars are getting bigger and bigger, do they still fit in all the garages? Or do you need to be aware of that as a car-driver.
 
