@@ -75,6 +75,9 @@
     <span>{value}</span>. Waar in Nederland kan ik deze auto parkeren?
   </h2>
   <p>Hoe zit het met het parkeren van mijn {value} in de stad?</p>
+  De gemiddelde hoogte van een personenbus ligt rond de twee meter, kan je dit
+  overal in Nederland parkeren, of ben je gelimiteerd tot een select aantal
+  parkeergarages?
   <article>
     <h3>Type auto:</h3>
     <select bind:value name="" id="">

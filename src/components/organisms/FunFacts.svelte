@@ -75,6 +75,12 @@
       verdeeld over 355 locaties.
     </p>
 
+    <p>
+      Al met al komt het er op neer dat er dat een behoorlijk aantal
+      parkeerplaatsen zijn die onder de twee meter zijn. Hierdoor is het
+      lastiger om de personenbus overal in Nederland te parkeren.
+    </p>
+
     <p />
   </article>
 
