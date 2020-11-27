@@ -17,6 +17,7 @@
       &:nth-of-type(1) {
         h2 {
           font-size: $h2-size;
+          color: $ui-blue-green;
         }
         p {
           display: block;
